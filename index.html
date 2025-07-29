@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoirul Amri Siregar - Cybersecurity Portfolio</title>
+    <meta name="description" content="Portfolio Khoirul Amri Siregar (Kasrtenn), seorang pelajar dan ethical hacker dengan keahlian cybersecurity, penetration testing, dan bug hunting.">
+    <meta name="keywords" content="Khoirul Amri Siregar, Kasrtenn, Cybersecurity, Ethical Hacking, Bug Hunter, Penetration Testing, Portofolio Cybersecurity">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -61,6 +64,49 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 1rem;
+        }
+
+        /* Loading Screen Styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark); /* Gunakan warna latar belakang utama Anda */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Pastikan di atas semua elemen lain */
+            transition: opacity 0.7s ease-out; /* Animasi fade-out */
+            opacity: 1; /* Awalnya terlihat */
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden; /* Sembunyikan sepenuhnya setelah fade-out */
+        }
+
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.2); /* Warna border spinner */
+            border-top: 8px solid var(--accent-green); /* Warna aksen spinner */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite; /* Animasi berputar */
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #loading-screen p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* Navbar */
@@ -690,6 +736,11 @@
     </style>
 </head>
 <body>
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
     <nav class="navbar">
         <div class="navbar-container">
             <a href="#home" class="navbar-logo">Kasrtenn</a>
@@ -794,27 +845,27 @@
         
         <div class="certificate-gallery container">
             <div class="certificate-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="images/sertifikat_gunungkidul.png" alt="Sertifikat Apresiasi Kabupaten Gunungkidul">
+                <img src="images/sertifikat_gunungkidul.png" alt="Sertifikat Apresiasi Kabupaten Gunungkidul" loading="lazy">
                 <p>Apresiasi atas aktivitas Vulnerability Assessment pada Sistem Elektronik Kabupaten Gunungkidul (22 April 2025).</p>
             </div>
             
             <div class="certificate-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="images/sertifikat_diy.png" alt="Sertifikat Apresiasi Provinsi D.I. Yogyakarta">
+                <img src="images/sertifikat_diy.png" alt="Sertifikat Apresiasi Provinsi D.I. Yogyakarta" loading="lazy">
                 <p>Apresiasi Diskominfo DIY untuk penemuan Directory Listing dan Error Log Exposed (11 Juni 2025).</p>
             </div>
 
             <div class="certificate-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="images/sertifikat_kpi.png" alt="Sertifikat Apresiasi KPI Pusat">
+                <img src="images/sertifikat_kpi.png" alt="Sertifikat Apresiasi KPI Pusat" loading="lazy">
                 <p>Apresiasi KPI Pusat terkait Deteksi Kerentanan Keamanan pada Layanan Aplikasi mereka (11 Juni 2025).</p>
             </div>
 
             <div class="certificate-item" data-aos="zoom-in" data-aos-delay="400">
-                <img src="images/sertifikat_pemkotyogyakarta.png" alt="Sertifikat Apresiasi Pemkot Yogyakarta">
+                <img src="images/sertifikat_pemkotyogyakarta.png" alt="Sertifikat Apresiasi Pemkot Yogyakarta" loading="lazy">
                 <p>Apresiasi dari pemerintah kota Yogyakarta atas temuan celah keamanan (13 Juni 2025).</p>
             </div>
 
             <div class="certificate-item" data-aos="zoom-in" data-aos-delay="500">
-                <img src="images/sertifikat_bantul.png" alt="Sertifikat Apresiasi BantulKab">
+                <img src="images/sertifikat_bantul.png" alt="Sertifikat Apresiasi BantulKab" loading="lazy">
                 <p>Apresiasi dari pemerintah Kabupaten Bantul atas temuan celah keamanan (11 Juni 2025).</p>
             </div>
         </div>
@@ -824,14 +875,14 @@
         <h2 class="section-title">Portofolio & Pencapaian</h2>
         <div class="portfolio-grid container">
             <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="images/project_gov_audit.png" alt="Audit Keamanan Situs Pemerintah">
+                <img src="images/project_gov_audit.png" alt="Audit Keamanan Situs Pemerintah" loading="lazy">
                 <div class="project-card-content">
                     <h3>Audit Keamanan Situs Pemerintah</h3>
                     <p>Melakukan *web pentesting* dan mengidentifikasi kerentanan kritis pada *endpoint login* serta konfigurasi aplikasi, yang berujung pada apresiasi resmi dari instansi terkait.</p>
                     <a href="#" class="btn-detail">Lihat Detail</a> </div>
             </div>
             <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="images/project_recon_script.png" alt="Recon Script Development">
+                <img src="images/project_recon_script.png" alt="Recon Script Development" loading="lazy">
                 <div class="project-card-content">
                     <h3>Pengembangan Script Otomatisasi Recon</h3>
                     <p>Membangun *tool* *reconnaissance* berbasis CLI menggunakan Python dan Bash untuk Termux/Kali Linux, mengintegrasikan berbagai *tools* untuk efisiensi *bug hunting*.</p>
@@ -839,7 +890,7 @@
                 </div>
             </div>
             <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                <img src="images/project_manual_analysis.png" alt="Manual Bug Analysis">
+                <img src="images/project_manual_analysis.png" alt="Manual Bug Analysis" loading="lazy">
                 <div class="project-card-content">
                     <h3>Analisis Manual Kerentanan Situs Swasta</h3>
                     <p>Melakukan identifikasi dan eksploitasi etis terhadap kerentanan *XSS* pada situs web swasta, menggunakan Burp Suite dan *payload* manual.</p>
@@ -917,6 +968,17 @@
             if (!isClickInsideNavbar && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
+        });
+
+        // JavaScript untuk Loading Screen (DITEMPATKAN DI SINI)
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            // Tambahkan class 'hidden' setelah halaman selesai dimuat
+            loadingScreen.classList.add('hidden');
+            // Opsional: Hapus elemen dari DOM setelah animasi selesai
+            loadingScreen.addEventListener('transitionend', () => {
+                loadingScreen.remove();
+            });
         });
     </script>
 </body>
