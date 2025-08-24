@@ -82,7 +82,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.7s ease-out;
+            transition: opacity 0.7s ease-out; /* Menambahkan transisi */
         }
 
         .hacking-text {
@@ -780,11 +780,6 @@
             .nav-links.active {
                 display: flex;
             }
-            .nav-links li {
-                margin: 0;
-                padding: 0.8rem 2rem;
-                text-align: center;
-            }
             .hamburger {
                 display: block;
             }
@@ -812,10 +807,8 @@
     </style>
 </head>
 <body>
-    <!-- Matrix Background -->
     <canvas id="matrix-bg"></canvas>
 
-    <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="hacking-text">INITIATING SYSTEM...</div>
         <div class="terminal-loader">
@@ -837,7 +830,6 @@
         </div>
     </div>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
             <a href="#home" class="navbar-logo">Kasrtenn</a>
@@ -855,7 +847,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hacker-terminal">
             <div class="terminal-command">> whois kasrtenn</div>
@@ -882,7 +873,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-content container">
@@ -901,7 +891,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2 class="section-title">Skills & Knowledge</h2>
         <div class="skills-grid container">
@@ -950,7 +939,6 @@
         </div>
     </section>
 
-    <!-- Certificates Section -->
     <section id="certificates" class="certificates">
         <h2 class="section-title">Appreciation Certificates</h2>
         <p class="info-text">
@@ -975,7 +963,6 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <h2 class="section-title">Portfolio & Achievements</h2>
         <div class="portfolio-grid container">
@@ -1006,7 +993,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2 class="section-title">Contact Me</h2>
         <div class="contact-content container">
@@ -1035,7 +1021,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 Khoirul Amri Siregar. All rights reserved.</p>
     </footer>
@@ -1061,7 +1046,8 @@
             ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            ctx.fillStyle = var(--terminal-green);
+            // Perbaikan: Menggunakan variabel CSS untuk warna
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--terminal-green');
             ctx.font = `${fontSize}px 'Share Tech Mono'`;
             
             for(let i = 0; i < drops.length; i++) {
@@ -1091,12 +1077,13 @@
                     progress = 100;
                     clearInterval(interval);
                     
+                    // Perbaikan: Menambahkan jeda dan menggunakan opacity untuk transisi yang mulus
                     setTimeout(() => {
-                        loadingScreen.classList.add('hidden');
+                        loadingScreen.style.opacity = '0'; // Mulai transisi
                         setTimeout(() => {
-                            loadingScreen.remove();
+                            loadingScreen.style.display = 'none'; // Sembunyikan setelah transisi selesai (700ms)
                         }, 700);
-                    }, 500);
+                    }, 500); // Jeda 500ms setelah 100%
                 }
                 
                 progressBar.style.width = `${progress}%`;
