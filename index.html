@@ -522,11 +522,14 @@
             box-shadow: 0 0 30px var(--terminal-green);
         }
 
+        /* PERUBAHAN DI SINI: object-fit: contain */
         .certificate-item img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 200px; 
+            object-fit: contain; /* Mengubah ini agar gambar tidak terpotong */
             border-bottom: 2px solid var(--terminal-green);
+            background-color: var(--dark-gray); /* Opsional: beri latar belakang agar whitespace tidak kosong */
+            padding: 5px; /* Opsional: sedikit padding */
         }
 
         .certificate-item p {
@@ -811,7 +814,7 @@
                 <h3><i class="fas fa-tools"></i> Tools Mastery</h3>
                 <ul class="skill-list">
                     <li><i class="fas fa-angle-right"></i> Nmap</li>
-                    <li><i class="fas fa-angle-right"></i> HTTPX</li>
+                    <li><i class="fas fa-></i> HTTPX</li>
                     <li><i class="fas fa-angle-right"></i> Subfinder</li>
                     <li><i class="fas fa-angle-right"></i> Katana</li>
                     <li><i class="fas fa-angle-right"></i> Nuclei</li>
@@ -861,38 +864,38 @@
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+4" alt="Sertifikat Apresiasi Pemerintah">
-                <p>Appreciation from a government institution for ethical disclosure of critical vulnerabilities.</p>
+                <img src="images/BMKG.jpg" alt="Sertifikat Apresiasi BMKG">
+                <p>Appreciation from BMKG for ethical disclosure of critical vulnerabilities.</p>
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+5" alt="Sertifikat Apresiasi Perusahaan Swasta">
-                <p>Certificate of appreciation from a private company for discovering and reporting a high-severity bug.</p>
+                <img src="images/BantulKab.jpg" alt="Sertifikat Apresiasi Kabupaten Bantul">
+                <p>Certificate of appreciation from Bantul Regency for discovering and reporting a high-severity bug.</p>
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+6" alt="Sertifikat Apresiasi Organisasi Publik">
-                <p>Acknowledgement from a public organization for contributing to their application security.</p>
+                <img src="images/Jakarta.jpg" alt="Sertifikat Apresiasi DKI Jakarta">
+                <p>Acknowledgement from DKI Jakarta for contributing to their application security.</p>
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+7" alt="Sertifikat Apresiasi Industri Teknologi">
-                <p>Appreciation from a tech industry player for responsible vulnerability disclosure.</p>
+                <img src="images/JogjaKota.jpg" alt="Sertifikat Apresiasi Kota Yogyakarta">
+                <p>Appreciation from Kota Yogyakarta for responsible vulnerability disclosure.</p>
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+8" alt="Sertifikat Apresiasi Layanan Keuangan">
-                <p>Certificate of thanks from a financial service provider for finding and reporting a security flaw.</p>
+                <img src="images/JombangKab.jpg" alt="Sertifikat Apresiasi Kabupaten Jombang">
+                <p>Certificate of thanks from Jombang Regency for finding and reporting a security flaw.</p>
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+9" alt="Sertifikat Apresiasi E-commerce">
-                <p>Appreciation from an e-commerce platform for enhancing their user security.</p>
+                <img src="images/Kemenag.jpg" alt="Sertifikat Apresiasi Kemenag">
+                <p>Appreciation from Kemenag for enhancing their user security.</p>
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+10" alt="Sertifikat Apresiasi Lainnya">
-                <p>Official recognition for security contributions to a public-facing web application.</p>
+                <img src="images/SultengProv.jpg" alt="Sertifikat Apresiasi Provinsi Sulawesi Tengah">
+                <p>Official recognition for security contributions to a public-facing web application in Central Sulawesi Province.</p>
             </div>
         </div>
     </section>
@@ -1058,4 +1061,3 @@
     </script>
 </body>
 </html>
-
