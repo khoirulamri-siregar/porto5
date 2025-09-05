@@ -82,7 +82,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.7s ease-out; /* Menambahkan transisi */
+            transition: opacity 0.7s ease-out;
         }
 
         .hacking-text {
@@ -438,7 +438,7 @@
         /* About Section */
         .about-content {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr;
             gap: 3rem;
             align-items: start;
         }
@@ -446,39 +446,6 @@
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
-        }
-
-        .about-highlights {
-            background-color: var(--terminal-dark);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--terminal-green);
-            box-shadow: 0 0 20px var(--terminal-green);
-        }
-
-        .about-highlights h3 {
-            color: var(--terminal-green);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            border-bottom: 1px solid var(--terminal-green);
-            padding-bottom: 0.5rem;
-            text-shadow: 0 0 5px var(--terminal-green);
-        }
-
-        .about-highlights ul {
-            list-style: none;
-        }
-
-        .about-highlights li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .about-highlights li i {
-            color: var(--terminal-green);
-            margin-right: 10px;
-            font-size: 1.2rem;
         }
 
         /* Skills Section */
@@ -565,65 +532,6 @@
         .certificate-item p {
             padding: 1rem;
             font-size: 0.9rem;
-        }
-
-        /* Portfolio Section */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: var(--terminal-dark);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--terminal-green);
-            box-shadow: 0 0 15px var(--terminal-green);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px var(--terminal-green);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--terminal-green);
-        }
-
-        .project-card-content {
-            padding: 1.5rem;
-        }
-
-        .project-card-content h3 {
-            color: var(--terminal-green);
-            margin-bottom: 0.8rem;
-            font-size: 1.5rem;
-        }
-
-        .project-card-content p {
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .btn-detail {
-            display: inline-block;
-            padding: 0.7rem 1.5rem;
-            background-color: var(--terminal-green);
-            color: var(--bg-dark);
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-detail:hover {
-            background-color: transparent;
-            color: var(--terminal-green);
-            box-shadow: 0 0 15px var(--terminal-green);
         }
 
         /* Contact Section */
@@ -841,7 +749,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -867,7 +774,7 @@
             </p>
             
             <div class="cta-buttons">
-                <a href="#portfolio" class="btn primary-btn">View My Work</a>
+                <a href="#certificates" class="btn primary-btn">View My Certificates</a>
                 <a href="#contact" class="btn secondary-btn">Get In Touch</a>
             </div>
         </div>
@@ -879,14 +786,6 @@
             <div class="about-text">
                 <p>Since discovering bug bounty programs and seeing how individuals can directly contribute to digital security legally, I, Khoirul Amri Siregar (Kasrtenn), began my journey into ethical hacking at the age of 14. For over a year, I have been self-taught, utilizing platforms like Termux and Kali Linux, as well as various pentesting tools to hone my skills in finding and analyzing vulnerabilities.</p>
                 <p>I aspire to become a recognized professional pentester, contributing to cybersecurity, and continuously developing my capacity as a security researcher. My vision is to become a trusted figure in the cybersecurity community, with a strong reputation based on findings and tangible contributions.</p>
-            </div>
-            <div class="about-highlights">
-                <h3>Early Achievements</h3>
-                <ul>
-                    <li><i class="fas fa-terminal"></i> <strong>Active Learning Experience:</strong> Over 1 year of focused and in-depth study in ethical hacking.</li>
-                    <li><i class="fas fa-terminal"></i> <strong>Tangible Contributions:</strong> Discovered and reported several vulnerabilities on government and corporate websites, some of which received appreciation or official certificates.</li>
-                    <li><i class="fas fa-terminal"></i> <strong>Innovation & Development:</strong> Actively developing automation scripts for pentesting needs using Python, with several personal projects on GitHub.</li>
-                </ul>
             </div>
         </div>
     </section>
@@ -947,48 +846,53 @@
         
         <div class="certificate-gallery container">
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Gunungkidul+Certificate" alt="Sertifikat Apresiasi Kabupaten Gunungkidul">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+1" alt="Sertifikat Apresiasi Kabupaten Gunungkidul">
                 <p>Appreciation for Vulnerability Assessment activities on the Gunungkidul Regency Electronic System (April 22, 2025).</p>
             </div>
             
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=DIY+Certificate" alt="Sertifikat Apresiasi Provinsi D.I. Yogyakarta">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+2" alt="Sertifikat Apresiasi Provinsi D.I. Yogyakarta">
                 <p>Diskominfo DIY appreciation for finding Directory Listing and Error Log Exposed (June 11, 2025).</p>
             </div>
 
             <div class="certificate-item">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=KPI+Certificate" alt="Sertifikat Apresiasi KPI Pusat">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+3" alt="Sertifikat Apresiasi KPI Pusat">
                 <p>KPI Central appreciation related to Detection of Security Vulnerabilities in their Application Services (June 11, 2025).</p>
             </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio">
-        <h2 class="section-title">Portfolio & Achievements</h2>
-        <div class="portfolio-grid container">
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Government+Security+Audit" alt="Audit Keamanan Situs Pemerintah">
-                <div class="project-card-content">
-                    <h3>Government Website Security Audit</h3>
-                    <p>Performed web pentesting and identified critical vulnerabilities in login endpoints and application configuration, leading to official appreciation from relevant agencies.</p>
-                    <a href="#" class="btn-detail">View Details</a>
-                </div>
+            
+            <div class="certificate-item">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+4" alt="Sertifikat Apresiasi Pemerintah">
+                <p>Appreciation from a government institution for ethical disclosure of critical vulnerabilities.</p>
             </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Recon+Script" alt="Recon Script Development">
-                <div class="project-card-content">
-                    <h3>Reconnaissance Script Development</h3>
-                    <p>Built CLI-based reconnaissance tools using Python and Bash for Termux/Kali Linux, integrating various tools for bug hunting efficiency.</p>
-                    <a href="https://github.com/Kasrtenn" target="_blank" class="btn-detail">View on GitHub</a>
-                </div>
+            
+            <div class="certificate-item">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+5" alt="Sertifikat Apresiasi Perusahaan Swasta">
+                <p>Certificate of appreciation from a private company for discovering and reporting a high-severity bug.</p>
             </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Manual+Analysis" alt="Manual Bug Analysis">
-                <div class="project-card-content">
-                    <h3>Manual Vulnerability Analysis of Private Sites</h3>
-                    <p>Identified and ethically exploited XSS vulnerabilities on private websites using Burp Suite and manual payloads.</p>
-                    <a href="#" class="btn-detail">View Details</a>
-                </div>
+            
+            <div class="certificate-item">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+6" alt="Sertifikat Apresiasi Organisasi Publik">
+                <p>Acknowledgement from a public organization for contributing to their application security.</p>
+            </div>
+            
+            <div class="certificate-item">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+7" alt="Sertifikat Apresiasi Industri Teknologi">
+                <p>Appreciation from a tech industry player for responsible vulnerability disclosure.</p>
+            </div>
+            
+            <div class="certificate-item">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+8" alt="Sertifikat Apresiasi Layanan Keuangan">
+                <p>Certificate of thanks from a financial service provider for finding and reporting a security flaw.</p>
+            </div>
+            
+            <div class="certificate-item">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+9" alt="Sertifikat Apresiasi E-commerce">
+                <p>Appreciation from an e-commerce platform for enhancing their user security.</p>
+            </div>
+            
+            <div class="certificate-item">
+                <img src="https://via.placeholder.com/400x250/0f1f0f/00ff4c?text=Certificate+10" alt="Sertifikat Apresiasi Lainnya">
+                <p>Official recognition for security contributions to a public-facing web application.</p>
             </div>
         </div>
     </section>
@@ -1079,11 +983,11 @@
                     
                     // Perbaikan: Menambahkan jeda dan menggunakan opacity untuk transisi yang mulus
                     setTimeout(() => {
-                        loadingScreen.style.opacity = '0'; // Mulai transisi
+                        loadingScreen.style.opacity = '0';
                         setTimeout(() => {
-                            loadingScreen.style.display = 'none'; // Sembunyikan setelah transisi selesai (700ms)
+                            loadingScreen.style.display = 'none';
                         }, 700);
-                    }, 500); // Jeda 500ms setelah 100%
+                    }, 500);
                 }
                 
                 progressBar.style.width = `${progress}%`;
@@ -1143,7 +1047,7 @@
             });
             
             window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Initial check
+            animateOnScroll();
         });
 
         // Resize canvas when window is resized
@@ -1154,5 +1058,3 @@
     </script>
 </body>
 </html>
-
-
