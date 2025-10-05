@@ -178,6 +178,85 @@
             }
         }
 
+        /* Certificate Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: var(--bg-secondary);
+            margin: 2% auto;
+            padding: 2rem;
+            border: 3px solid var(--accent-cyan);
+            box-shadow: var(--glow-cyan);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 10px;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            border: 2px solid var(--accent-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            color: var(--accent-yellow);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-date {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-primary);
+            box-shadow: var(--glow-cyan);
+        }
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Press Start 2P', cursive;
             margin-bottom: 1rem;
@@ -342,6 +421,35 @@
             filter: grayscale(0.2) contrast(1.1);
         }
 
+        .hero-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(0.7rem, 2vw, 1rem);
+            color: var(--accent-yellow);
+            margin-bottom: 2rem;
+            text-shadow: var(--glow-yellow);
+        }
+
+        .typing-text {
+            overflow: hidden;
+            border-right: 2px solid var(--accent-cyan);
+            white-space: nowrap;
+            animation: typing 2.5s steps(20, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent-cyan); }
+        }
+
         .terminal {
             background-color: rgba(26, 26, 46, 0.8);
             border: 2px solid var(--accent-cyan);
@@ -382,23 +490,6 @@
 
         .terminal-prompt {
             color: var(--accent-yellow);
-        }
-
-        .typing-text {
-            overflow: hidden;
-            border-right: 2px solid var(--accent-cyan);
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--accent-cyan); }
         }
 
         .hero-buttons {
@@ -739,6 +830,19 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            .modal-content {
+                padding: 1rem;
+                margin: 5% auto;
+                width: 95%;
+            }
+
+            .close-btn {
+                top: 10px;
+                right: 10px;
+                font-size: 0.6rem;
+                padding: 0.3rem 0.8rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -801,6 +905,16 @@
         <div class="binary-rain" id="binaryRain"></div>
     </div>
 
+    <!-- Certificate Popup Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">CLOSE</button>
+            <img id="modalImage" class="modal-img" src="" alt="Certificate">
+            <h3 id="modalTitle" class="modal-title"></h3>
+            <p id="modalDate" class="modal-date"></p>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">KASRTENN</a>
@@ -820,7 +934,8 @@
             <div class="profile-img">
                 <img src="images/profile.jpg" alt="Kasrtenn Profile Picture">
             </div>
-            <h1 class="typing-text">KHOIRUL AMRI SIREGAR — BUG HUNTER & ETHICAL HACKING ENTHUSIAST</h1>
+            <h1 class="hero-title typing-text">KHOIRUL AMRI SIREGAR</h1>
+            <p class="hero-subtitle">BUG HUNTER & ETHICAL HACKING ENTHUSIAST</p>
             <div class="terminal">
                 <div class="terminal-header">
                     <div class="terminal-dot dot-red"></div>
@@ -911,70 +1026,70 @@
         <div class="container">
             <h2 class="section-title">Certificates</h2>
             <div class="certificates-grid">
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/GunungKidulKab.png" data-title="Gunungkidul Regency" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/GunungKidulKab.png" alt="Gunungkidul Regency Certificate">
                     </div>
                     <h3 class="certificate-title">Gunungkidul Regency</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/JogjaProv.jpg" data-title="D.I. Yogyakarta" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/JogjaProv.jpg" alt="D.I. Yogyakarta Certificate">
                     </div>
                     <h3 class="certificate-title">D.I. Yogyakarta</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/KPI.jpg" data-title="KPI Pusat" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/KPI.jpg" alt="KPI Pusat Certificate">
                     </div>
                     <h3 class="certificate-title">KPI Pusat</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/BMKG.jpg" data-title="BMKG" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/BMKG.jpg" alt="BMKG Certificate">
                     </div>
                     <h3 class="certificate-title">BMKG</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/BantulKab.jpg" data-title="Bantul Regency" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/BantulKab.jpg" alt="Bantul Regency Certificate">
                     </div>
                     <h3 class="certificate-title">Bantul Regency</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/Jakarta.jpg" data-title="DKI Jakarta" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/Jakarta.jpg" alt="DKI Jakarta Certificate">
                     </div>
                     <h3 class="certificate-title">DKI Jakarta</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/JogjaKota.jpg" data-title="Kota Yogyakarta" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/JogjaKota.jpg" alt="Kota Yogyakarta Certificate">
                     </div>
                     <h3 class="certificate-title">Kota Yogyakarta</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/JombangKab.jpg" data-title="Kabupaten Jombang" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/JombangKab.jpg" alt="Kabupaten Jombang Certificate">
                     </div>
                     <h3 class="certificate-title">Kabupaten Jombang</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/Kemenag.jpg" data-title="Kemenag" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/Kemenag.jpg" alt="Kemenag Certificate">
                     </div>
                     <h3 class="certificate-title">Kemenag</h3>
                     <p class="certificate-date">2023</p>
                 </div>
-                <div class="certificate-card fade-in">
+                <div class="certificate-card fade-in" data-image="images/SultengProv.jpg" data-title="Sulawesi Tengah Province" data-date="2023">
                     <div class="certificate-img-container">
                         <img src="images/SultengProv.jpg" alt="Sulawesi Tengah Province Certificate">
                     </div>
@@ -1065,7 +1180,7 @@
                 if (i < fullText.length) {
                     typingTextElement.textContent += fullText.charAt(i);
                     i++;
-                    setTimeout(typeWriter, 50);
+                    setTimeout(typeWriter, 100);
                 }
             }
             
@@ -1111,6 +1226,44 @@
                 console.log('Message:', message);
             } else {
                  messageStatus.textContent = 'ERROR: All fields are required.';
+            }
+        });
+
+        // Certificate Popup Functionality
+        const modal = document.getElementById('certificateModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDate = document.getElementById('modalDate');
+        const closeModal = document.getElementById('closeModal');
+
+        // Add click event to all certificate cards
+        document.querySelectorAll('.certificate-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const imageSrc = card.getAttribute('data-image');
+                const title = card.getAttribute('data-title');
+                const date = card.getAttribute('data-date');
+                
+                modalImage.src = imageSrc;
+                modalImage.alt = title + ' Certificate';
+                modalTitle.textContent = title;
+                modalDate.textContent = date;
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close modal when clicking close button
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+
+        // Close modal when clicking outside the content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         });
 
