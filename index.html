@@ -35,10 +35,147 @@
             color: var(--text-primary);
             font-family: 'VT323', monospace;
             line-height: 1.6;
-            background-image: 
-                linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)),
-                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Enhanced Background Elements */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .pixel-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.7)),
+                url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='23' cy='23' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .glitch-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(0, 255, 255, 0.03) 50%,
+                transparent 100%
+            );
+            opacity: 0;
+            animation: glitch 15s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { opacity: 0; transform: translateX(0); }
+            5% { opacity: 0.1; transform: translateX(-5px); }
+            10% { opacity: 0; }
+            45% { opacity: 0; }
+            50% { opacity: 0.1; transform: translateX(5px); }
+            55% { opacity: 0; }
+        }
+
+        .floating-pixels {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pixel {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-cyan);
+            opacity: 0;
+            animation: floatPixel 20s infinite linear;
+        }
+
+        @keyframes floatPixel {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .binary-column {
+            position: absolute;
+            top: -100px;
+            width: 20px;
+            font-family: 'VT323', monospace;
+            font-size: 14px;
+            color: rgba(0, 255, 255, 0.3);
+            animation: binaryFall 20s linear infinite;
+        }
+
+        @keyframes binaryFall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -63,6 +200,7 @@
 
         section {
             padding: 5rem 0;
+            position: relative;
         }
 
         /* Navbar */
@@ -155,6 +293,8 @@
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .profile-img {
@@ -312,8 +452,9 @@
 
         /* About Section */
         .about {
-            background-color: var(--bg-secondary);
+            background-color: rgba(26, 26, 46, 0.7);
             position: relative;
+            backdrop-filter: blur(5px);
         }
 
         .pixel-panel {
@@ -536,11 +677,12 @@
 
         /* Footer */
         footer {
-            background-color: var(--bg-secondary);
+            background-color: rgba(26, 26, 46, 0.8);
             padding: 2rem 0;
             text-align: center;
             border-top: 1px solid var(--accent-cyan);
             box-shadow: 0 0 10px var(--accent-cyan);
+            backdrop-filter: blur(5px);
         }
 
         .footer-text {
@@ -650,6 +792,15 @@
     </style>
 </head>
 <body>
+    <!-- Enhanced Background Elements -->
+    <div class="background-container">
+        <div class="pixel-grid"></div>
+        <div class="scanlines"></div>
+        <div class="glitch-effect"></div>
+        <div class="floating-pixels" id="floatingPixels"></div>
+        <div class="binary-rain" id="binaryRain"></div>
+    </div>
+
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">KASRTENN</a>
@@ -891,7 +1042,7 @@
                 if (entry.isIntersecting) {
                     setTimeout(() => {
                         entry.target.classList.add('visible');
-                    }, 200); // Add slight delay for smoother appearance
+                    }, 200);
                     observer.unobserve(entry.target);
                 }
             });
@@ -962,6 +1113,61 @@
                  messageStatus.textContent = 'ERROR: All fields are required.';
             }
         });
+
+        // Enhanced Background Effects
+        function createFloatingPixels() {
+            const container = document.getElementById('floatingPixels');
+            const pixelCount = 30;
+            
+            for (let i = 0; i < pixelCount; i++) {
+                const pixel = document.createElement('div');
+                pixel.classList.add('pixel');
+                
+                // Random position
+                const left = Math.random() * 100;
+                const delay = Math.random() * 20;
+                const duration = 15 + Math.random() * 10;
+                
+                pixel.style.left = `${left}%`;
+                pixel.style.animationDelay = `${delay}s`;
+                pixel.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(pixel);
+            }
+        }
+
+        function createBinaryRain() {
+            const container = document.getElementById('binaryRain');
+            const columnCount = 15;
+            const binaryChars = ['0', '1'];
+            
+            for (let i = 0; i < columnCount; i++) {
+                const column = document.createElement('div');
+                column.classList.add('binary-column');
+                
+                // Random position and animation
+                const left = Math.random() * 100;
+                const delay = Math.random() * 20;
+                const duration = 10 + Math.random() * 10;
+                
+                column.style.left = `${left}%`;
+                column.style.animationDelay = `${delay}s`;
+                column.style.animationDuration = `${duration}s`;
+                
+                // Add binary characters
+                let binaryContent = '';
+                for (let j = 0; j < 30; j++) {
+                    binaryContent += binaryChars[Math.floor(Math.random() * binaryChars.length)] + '<br>';
+                }
+                column.innerHTML = binaryContent;
+                
+                container.appendChild(column);
+            }
+        }
+
+        // Initialize background effects
+        createFloatingPixels();
+        createBinaryRain();
     </script>
 </body>
 </html>
