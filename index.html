@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kasrtenn - Bug Hunter & Security Researcher</title>
+    <title>Kasrtenn - Pixel Bug Hunter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #1a1a1a;
+            --pixel-dark: #0a0a0f;
+            --pixel-darker: #1a1a2e;
+            --pixel-cyan: #00ffff;
+            --pixel-yellow: #fbbf24;
             --pixel-green: #00ff00;
-            --pixel-blue: #0088ff;
-            --pixel-yellow: #ffff00;
-            --pixel-red: #ff0000;
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
+            --pixel-white: #ffffff;
+            --pixel-gray: #4a5568;
         }
 
         * {
@@ -26,346 +25,250 @@
             image-rendering: pixelated;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'VT323', monospace;
+            background: var(--pixel-dark);
+            color: var(--pixel-white);
+            font-family: 'Press Start 2P', cursive;
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.9)),
-                url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ff00' fill-opacity='0.05'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='4' y='0' width='1' height='1'/%3E%3Crect x='0' y='4' width='1' height='1'/%3E%3Crect x='4' y='4' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Press Start 2P', cursive;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: clamp(1.2rem, 4vw, 2rem);
-        }
-
-        h2 {
-            font-size: clamp(1rem, 3.5vw, 1.5rem);
         }
 
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 20px;
         }
 
-        section {
-            padding: 5rem 0;
+        /* Animasi Fade In */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Pixel Borders */
-        .pixel-border {
-            border-style: solid;
-            border-width: 4px;
-            border-color: var(--pixel-green);
-            position: relative;
-            background: var(--bg-secondary);
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        .pixel-border::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            border: 2px solid var(--pixel-blue);
-            z-index: -1;
-        }
-
-        .pixel-border-yellow {
-            border-color: var(--pixel-yellow);
-        }
-
-        .pixel-border-blue {
-            border-color: var(--pixel-blue);
-        }
-
-        /* Navbar */
-        .navbar {
+        /* Pixel Art Header */
+        .pixel-header {
+            background: var(--pixel-darker);
+            padding: 20px 0;
+            border-bottom: 4px solid var(--pixel-cyan);
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            background-color: var(--bg-secondary);
+            top: 0;
             z-index: 1000;
-            border-bottom: 4px solid var(--pixel-green);
         }
 
-        .nav-container {
+        .pixel-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
 
         .logo {
-            font-family: 'Press Start 2P', cursive;
-            font-size: clamp(0.8rem, 3vw, 1.2rem);
-            color: var(--pixel-green);
-            text-decoration: none;
+            font-size: clamp(0.8rem, 3vw, 1.5rem);
+            color: var(--pixel-cyan);
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
+            gap: 20px;
             list-style: none;
         }
 
-        .nav-item {
-            margin-left: 2rem;
-        }
-
-        .nav-link {
-            color: var(--text-primary);
+        .nav-links a {
+            color: var(--pixel-white);
             text-decoration: none;
-            font-family: 'Press Start 2P', cursive;
-            font-size: clamp(0.5rem, 1.5vw, 0.7rem);
-            transition: all 0.3s ease;
-            position: relative;
+            font-size: clamp(0.5rem, 1.5vw, 0.8rem);
+            padding: 8px 16px;
+            border: 3px solid var(--pixel-cyan);
+            background: var(--pixel-dark);
+            transition: all 0.2s;
         }
 
-        .nav-link:hover {
-            color: var(--pixel-green);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--pixel-green);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
+        .nav-links a:hover {
+            background: var(--pixel-cyan);
+            color: var(--pixel-dark);
+            transform: translate(2px, 2px);
         }
 
         .hamburger {
             display: none;
-            cursor: pointer;
             background: none;
             border: none;
-            color: var(--pixel-green);
-            font-size: 1.8rem;
-            padding: 0.5rem;
+            color: var(--pixel-cyan);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .pixel-hero {
+            padding: 120px 0 80px;
+            background: var(--pixel-dark);
             position: relative;
-            overflow: hidden;
+            border-bottom: 4px solid var(--pixel-yellow);
         }
 
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2rem;
-            overflow: hidden;
-            position: relative;
-            border: 4px solid var(--pixel-green);
-            image-rendering: pixelated;
-        }
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            background-color: var(--bg-secondary);
-            filter: contrast(1.2) brightness(0.9);
-        }
-
-        .hero-title {
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-subtitle {
-            font-family: 'Press Start 2P', cursive;
-            font-size: clamp(0.7rem, 2vw, 1rem);
-            color: var(--pixel-yellow);
-            margin-bottom: 2rem;
-        }
-
-        .typing-text {
-            overflow: hidden;
-            border-right: 2px solid var(--pixel-green);
-            white-space: nowrap;
-            animation: typing 2.5s steps(20, end), blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--pixel-green); }
-        }
-
-        .terminal {
-            background-color: var(--bg-secondary);
-            border: 4px solid var(--pixel-green);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: left;
-            font-family: 'VT323', monospace;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            position: relative;
-        }
-
-        .terminal-header {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            margin-bottom: 1rem;
         }
 
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            margin-right: 8px;
-            background: var(--pixel-red);
+        .pixel-character {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            background: var(--pixel-darker);
+            border: 6px solid var(--pixel-cyan);
+            position: relative;
+            margin: 0 auto;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .terminal-dot.yellow {
-            background: var(--pixel-yellow);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        .terminal-dot.green {
-            background: var(--pixel-green);
+        .pixel-character::before {
+            content: 'KASRTENN';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--pixel-green);
+            font-size: 1.2rem;
+            text-align: center;
         }
 
-        .terminal-content {
+        .hero-text h1 {
+            font-size: clamp(1rem, 4vw, 2rem);
+            color: var(--pixel-yellow);
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: clamp(0.7rem, 2vw, 1rem);
+            color: var(--pixel-white);
+            margin-bottom: 30px;
             line-height: 1.8;
         }
 
-        .terminal-line {
-            margin-bottom: 0.5rem;
-        }
-
-        .terminal-prompt {
-            color: var(--pixel-yellow);
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn {
+        .pixel-button {
             display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 4px solid var(--pixel-green);
-            font-family: 'Press Start 2P', cursive;
-            font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+            padding: 12px 24px;
+            background: var(--pixel-green);
+            color: var(--pixel-dark);
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            font-size: clamp(0.7rem, 2vw, 1rem);
+            border: 4px solid var(--pixel-yellow);
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
 
-        .btn:hover {
-            background-color: var(--pixel-green);
-            color: var(--bg-primary);
-            transform: translate(2px, 2px);
-        }
-
-        .btn-yellow {
-            border-color: var(--pixel-yellow);
-        }
-
-        .btn-yellow:hover {
-            background-color: var(--pixel-yellow);
-            color: var(--bg-primary);
+        .pixel-button:hover {
+            background: var(--pixel-yellow);
+            transform: translate(3px, 3px);
+            box-shadow: 0 0 15px var(--pixel-yellow);
         }
 
         /* About Section */
-        .about {
-            background-color: var(--bg-secondary);
-            position: relative;
-        }
-
-        .pixel-panel {
-            background-color: var(--bg-primary);
-            border: 4px solid var(--pixel-blue);
-            padding: 2rem;
-            position: relative;
+        .pixel-about {
+            padding: 80px 0;
+            background: var(--pixel-darker);
+            border-bottom: 4px solid var(--pixel-cyan);
         }
 
         .section-title {
+            font-size: clamp(1rem, 3vw, 2rem);
+            color: var(--pixel-yellow);
             text-align: center;
-            margin-bottom: 3rem;
-            color: var(--pixel-green);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background-color: var(--pixel-green);
-            margin: 1rem auto;
+            margin-bottom: 50px;
         }
 
         .about-content {
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
             line-height: 1.8;
         }
 
+        .pixel-timeline {
+            background: var(--pixel-dark);
+            padding: 30px;
+            border: 4px solid var(--pixel-cyan);
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--pixel-darker);
+            border: 3px solid var(--pixel-green);
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            border-color: var(--pixel-yellow);
+        }
+
+        .timeline-item h3 {
+            color: var(--pixel-yellow);
+            margin-bottom: 10px;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+        }
+
+        .timeline-item p {
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            color: var(--pixel-white);
+        }
+
         /* Skills Section */
+        .pixel-skills {
+            padding: 80px 0;
+            background: var(--pixel-dark);
+            border-bottom: 4px solid var(--pixel-yellow);
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            gap: 30px;
         }
 
         .skill-category {
-            background-color: var(--bg-primary);
-            border: 4px solid var(--pixel-green);
-            padding: 1.5rem;
-            transition: all 0.3s ease;
+            background: var(--pixel-darker);
+            padding: 30px;
+            border: 4px solid var(--pixel-cyan);
+            transition: all 0.3s;
         }
 
         .skill-category:hover {
-            transform: translateY(-2px);
-            border-color: var(--pixel-blue);
+            transform: translateY(-10px);
+            border-color: var(--pixel-green);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
         }
 
-        .skill-title {
+        .skill-category h3 {
             color: var(--pixel-yellow);
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            font-size: clamp(0.7rem, 2vw, 1rem);
             text-align: center;
-            font-size: clamp(0.7rem, 1.8vw, 0.9rem);
         }
 
         .skill-list {
@@ -373,11 +276,13 @@
         }
 
         .skill-item {
-            padding: 0.5rem 0;
-            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+            color: var(--pixel-white);
+            padding: 8px 0;
+            border-bottom: 2px solid var(--pixel-gray);
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            transition: all 0.3s;
             position: relative;
-            padding-left: 1.5rem;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            padding-left: 20px;
         }
 
         .skill-item::before {
@@ -387,62 +292,95 @@
             color: var(--pixel-green);
         }
 
+        .skill-item:hover {
+            color: var(--pixel-cyan);
+            transform: translateX(5px);
+        }
+
         /* Certificates Section */
+        .pixel-certificates {
+            padding: 80px 0;
+            background: var(--pixel-darker);
+            border-bottom: 4px solid var(--pixel-green);
+        }
+
         .certificates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
         .certificate-card {
-            background-color: var(--bg-primary);
-            border: 4px solid var(--pixel-green);
-            padding: 1.5rem;
+            background: var(--pixel-dark);
+            padding: 20px;
+            border: 4px solid var(--pixel-yellow);
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             cursor: pointer;
             position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .certificate-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
         }
 
         .certificate-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--pixel-blue);
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--pixel-cyan);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
         }
 
-        .certificate-img-container {
+        .certificate-img {
             width: 100%;
             height: 150px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            border: 2px solid var(--pixel-yellow);
-            position: relative;
+            background: var(--pixel-darker);
+            border: 3px solid var(--pixel-white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pixel-green);
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            transition: all 0.3s;
         }
 
-        .certificate-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: grayscale(100%);
-        }
-
-        .certificate-card:hover .certificate-img-container img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
+        .certificate-card:hover .certificate-img {
+            border-color: var(--pixel-cyan);
+            color: var(--pixel-cyan);
         }
 
         .certificate-title {
             color: var(--pixel-yellow);
-            margin-bottom: 0.5rem;
-            font-size: clamp(0.8rem, 2vw, 1rem);
+            margin-bottom: 10px;
+            font-size: clamp(0.7rem, 2vw, 1rem);
+            transition: all 0.3s;
+        }
+
+        .certificate-card:hover .certificate-title {
+            color: var(--pixel-green);
         }
 
         .certificate-date {
-            color: var(--text-secondary);
-            font-size: clamp(0.8rem, 2vw, 1rem);
+            color: var(--pixel-cyan);
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
         }
 
-        /* Modal */
+        /* Modal Popup */
         .modal {
             display: none;
             position: fixed;
@@ -450,249 +388,253 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
-            position: relative;
-            background-color: var(--bg-secondary);
-            margin: 2% auto;
-            padding: 2rem;
-            border: 4px solid var(--pixel-green);
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--pixel-darker);
+            padding: 30px;
+            border: 6px solid var(--pixel-cyan);
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
         }
 
         .modal-img {
             width: 100%;
+            max-width: 600px;
             height: auto;
-            border: 2px solid var(--pixel-yellow);
-            margin-bottom: 1rem;
+            border: 4px solid var(--pixel-yellow);
+            margin-bottom: 20px;
         }
 
         .modal-title {
             color: var(--pixel-yellow);
+            font-size: clamp(1rem, 3vw, 1.5rem);
             text-align: center;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .modal-date {
-            color: var(--text-secondary);
+            color: var(--pixel-cyan);
             text-align: center;
-            margin-bottom: 1.5rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            margin-bottom: 20px;
         }
 
         .close-btn {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: none;
-            border: 2px solid var(--pixel-green);
-            color: var(--pixel-green);
+            background: var(--pixel-dark);
+            border: 3px solid var(--pixel-cyan);
+            color: var(--pixel-cyan);
             font-family: 'Press Start 2P', cursive;
-            font-size: 0.8rem;
-            padding: 0.5rem 1rem;
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            padding: 10px 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         .close-btn:hover {
-            background-color: var(--pixel-green);
-            color: var(--bg-primary);
+            background: var(--pixel-cyan);
+            color: var(--pixel-dark);
+            transform: translate(2px, 2px);
         }
-        
+
         /* Contact Section */
+        .pixel-contact {
+            padding: 80px 0;
+            background: var(--pixel-dark);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info p {
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
         .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+            background: var(--pixel-darker);
+            padding: 30px;
+            border: 4px solid var(--pixel-cyan);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        .form-input {
+        .pixel-input {
             width: 100%;
-            padding: 0.8rem;
-            background-color: var(--bg-primary);
-            border: 4px solid var(--pixel-green);
-            color: var(--text-primary);
-            font-family: 'VT323', monospace;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            transition: all 0.3s ease;
+            padding: 12px;
+            background: var(--pixel-dark);
+            border: 3px solid var(--pixel-green);
+            color: var(--pixel-white);
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            transition: all 0.3s;
         }
 
-        .form-input:focus {
+        .pixel-input:focus {
             outline: none;
-            border-color: var(--pixel-blue);
+            border-color: var(--pixel-yellow);
+            box-shadow: 0 0 10px var(--pixel-yellow);
         }
 
-        textarea.form-input {
-            min-height: 150px;
+        textarea.pixel-input {
+            min-height: 120px;
             resize: vertical;
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border: 4px solid var(--pixel-green);
-            color: var(--pixel-green);
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--pixel-cyan);
+            color: var(--pixel-dark);
             text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            font-family: 'Press Start 2P', cursive;
+            border: 3px solid var(--pixel-yellow);
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            transition: all 0.3s;
         }
 
         .social-link:hover {
-            background-color: var(--pixel-green);
-            color: var(--bg-primary);
+            background: var(--pixel-yellow);
             transform: translate(2px, 2px);
-        }
-        
-        /* Message Status */
-        #message-status {
-            text-align: center;
-            margin-top: 1rem;
-            color: var(--pixel-yellow);
-            font-family: 'Press Start 2P', cursive;
-            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-            min-height: 20px;
+            box-shadow: 0 0 15px var(--pixel-yellow);
         }
 
         /* Footer */
-        footer {
-            background-color: var(--bg-secondary);
-            padding: 2rem 0;
+        .pixel-footer {
+            background: var(--pixel-darker);
+            padding: 30px 0;
             text-align: center;
             border-top: 4px solid var(--pixel-green);
         }
 
         .footer-text {
-            font-family: 'Press Start 2P', cursive;
+            color: var(--pixel-white);
             font-size: clamp(0.5rem, 1.5vw, 0.7rem);
-            color: var(--text-secondary);
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
             }
 
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                flex-direction: column;
-                background-color: var(--bg-secondary);
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
+                background: var(--pixel-darker);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 4px solid var(--pixel-cyan);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
                 text-align: center;
-                transition: 0.3s;
-                border-top: 4px solid var(--pixel-green);
-                padding: 2rem 0;
             }
 
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .nav-item {
-                margin: 1.5rem 0;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            .modal-content {
-                padding: 1rem;
-                margin: 5% auto;
-                width: 95%;
+            .pixel-character {
+                max-width: 200px;
+                height: 200px;
             }
 
-            .close-btn {
-                top: 10px;
-                right: 10px;
-                font-size: 0.6rem;
-                padding: 0.3rem 0.8rem;
+            .certificates-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .modal-content {
+                padding: 20px;
+                width: 95%;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 1.2rem;
-            }
-            
-            .terminal {
-                font-size: 1rem;
-                padding: 1rem;
+                padding: 0 15px;
             }
 
+            .pixel-hero {
+                padding: 100px 0 60px;
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+            }
+
+            .skills-grid,
             .certificates-grid {
-                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .profile-img {
-                width: 150px;
-                height: 150px;
+            .skill-category,
+            .certificate-card {
+                padding: 20px;
             }
-            
-            .social-links {
-                gap: 1rem;
-            }
-            
-            .social-link {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-        }
-        
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Certificate Popup Modal -->
+    <!-- Certificate Modal Popup -->
     <div id="certificateModal" class="modal">
         <div class="modal-content">
             <button class="close-btn" id="closeModal">CLOSE</button>
@@ -702,69 +644,72 @@
         </div>
     </div>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">KASRTENN</a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#certificates" class="nav-link">Certificates</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="hamburger">☰</button>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <div class="profile-img">
-                <img src="images/profile.jpg" alt="Kasrtenn Profile Picture">
-            </div>
-            <h1 class="hero-title typing-text">KHOIRUL AMRI SIREGAR</h1>
-            <p class="hero-subtitle">BUG HUNTER & ETHICAL HACKING ENTHUSIAST</p>
-            <div class="terminal">
-                <div class="terminal-header">
-                    <div class="terminal-dot"></div>
-                    <div class="terminal-dot yellow"></div>
-                    <div class="terminal-dot green"></div>
-                </div>
-                <div class="terminal-content">
-                    <div class="terminal-line"><span class="terminal-prompt">></span> whois kasrtenn</div>
-                    <div class="terminal-line"><span class="terminal-prompt">></span> Name: Khoirul Amri Siregar</div>
-                    <div class="terminal-line"><span class="terminal-prompt">></span> Alias: Kasrtenn</div>
-                    <div class="terminal-line"><span class="terminal-prompt">></span> Role: Bug Hunter & Security Researcher</div>
-                    <div class="terminal-line"><span class="terminal-prompt">></span> Location: Unknown</div>
-                    <div class="terminal-line"><span class="terminal-prompt">></span> Status: Active</div>
-                </div>
-            </div>
-            <p>Specializing in identifying vulnerabilities and strengthening digital security through ethical hacking practices and penetration testing.</p>
-            <div class="hero-buttons">
-                <a href="#certificates" class="btn">View My Certificates</a>
-                <a href="#contact" class="btn btn-yellow">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="about" class="about">
+    <!-- Header -->
+    <header class="pixel-header">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="pixel-panel fade-in">
-                <div class="about-content">
-                    <p>My journey in cybersecurity began at the age of 14 when I discovered the world of bug bounty hunting. Since then, I've been self-taught in various security tools and techniques using platforms like Termux and Kali Linux.</p>
-                    <p>My passion lies in identifying vulnerabilities and strengthening digital security through ethical hacking practices. I specialize in penetration testing, vulnerability assessment, and security research.</p>
-                    <p>My goal is to become a trusted security researcher, contributing to a safer digital ecosystem by helping organizations protect their assets from potential threats.</p>
+            <nav class="pixel-nav">
+                <div class="logo">KASRTENN</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">ABOUT ME</a></li>
+                    <li><a href="#skills">SKILLS</a></li>
+                    <li><a href="#certificates">CERTIFICATES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pixel-hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="pixel-character">
+                    <!-- Pixel art character placeholder -->
+                </div>
+                <div class="hero-text">
+                    <h1>KHOIRUL AMRI SIREGAR</h1>
+                    <p>I'M A BUG HUNTER. SINCE I WAS A TEENAGER I HAVE PASSION FOR CYBERSECURITY AND ETHICAL HACKING.</p>
+                    <a href="#contact" class="pixel-button">LET'S TALK</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="skills">
+    <!-- About Section -->
+    <section id="about" class="pixel-about">
         <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
+            <h2 class="section-title fade-in">ABOUT ME</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>SINCE A TEENAGER I HAVE A PASSION FOR CYBERSECURITY AND ETHICAL HACKING. MY FIRST SECURITY RESEARCH WENT TO FINDING VULNERABILITIES, CREATING SCRIPTS TO AUTOMATE SECURITY TESTING.</p>
+                    <p>AFTER +5 YEARS I STILL LOVE COMPUTERS AND SECURITY RESEARCH, BUT MOSTLY FOR WEB SECURITY, USING KALI LINUX, TERMUX, NMAP, BURP SUITE, SQLMAP, AND VARIOUS SECURITY TOOLS.</p>
+                </div>
+                <div class="pixel-timeline fade-in">
+                    <div class="timeline-item">
+                        <h3>2020-PRESENT | BUG BOUNTY HUNTER</h3>
+                        <p>FREELANCE SECURITY RESEARCHER</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2019-2020 | SECURITY RESEARCHER</h3>
+                        <p>VARIOUS PLATFORMS</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2018-2019 | CYBERSECURITY LEARNER</h3>
+                        <p>SELF-TAUGHT WITH TERMUX & KALI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="pixel-skills">
+        <div class="container">
+            <h2 class="section-title fade-in">SKILLS & EXPERTISE</h2>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
-                    <h3 class="skill-title">Security Concepts</h3>
+                    <h3>SECURITY CONCEPTS</h3>
                     <ul class="skill-list">
                         <li class="skill-item">OWASP Top 10</li>
                         <li class="skill-item">Reconnaissance</li>
@@ -777,7 +722,7 @@
                     </ul>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3 class="skill-title">Tools Mastery</h3>
+                    <h3>TOOLS MASTERY</h3>
                     <ul class="skill-list">
                         <li class="skill-item">Nmap</li>
                         <li class="skill-item">Subfinder</li>
@@ -792,7 +737,7 @@
                     </ul>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3 class="skill-title">Languages & Systems</h3>
+                    <h3>LANGUAGES & SYSTEMS</h3>
                     <ul class="skill-list">
                         <li class="skill-item">Python</li>
                         <li class="skill-item">Bash</li>
@@ -809,77 +754,58 @@
         </div>
     </section>
 
-    <section id="certificates" class="certificates">
+    <!-- Certificates Section -->
+    <section id="certificates" class="pixel-certificates">
         <div class="container">
-            <h2 class="section-title">Certificates</h2>
+            <h2 class="section-title fade-in">CERTIFICATES</h2>
             <div class="certificates-grid">
                 <div class="certificate-card fade-in" data-image="images/GunungKidulKab.png" data-title="Gunungkidul Regency" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/GunungKidulKab.png" alt="Gunungkidul Regency Certificate">
-                    </div>
+                    <div class="certificate-img">GUNUNGKIDUL REGENCY</div>
                     <h3 class="certificate-title">Gunungkidul Regency</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/JogjaProv.jpg" data-title="D.I. Yogyakarta" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/JogjaProv.jpg" alt="D.I. Yogyakarta Certificate">
-                    </div>
+                    <div class="certificate-img">D.I. YOGYAKARTA</div>
                     <h3 class="certificate-title">D.I. Yogyakarta</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/KPI.jpg" data-title="KPI Pusat" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/KPI.jpg" alt="KPI Pusat Certificate">
-                    </div>
+                    <div class="certificate-img">KPI PUSAT</div>
                     <h3 class="certificate-title">KPI Pusat</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/BMKG.jpg" data-title="BMKG" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/BMKG.jpg" alt="BMKG Certificate">
-                    </div>
+                    <div class="certificate-img">BMKG</div>
                     <h3 class="certificate-title">BMKG</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/BantulKab.jpg" data-title="Bantul Regency" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/BantulKab.jpg" alt="Bantul Regency Certificate">
-                    </div>
+                    <div class="certificate-img">BANTUL REGENCY</div>
                     <h3 class="certificate-title">Bantul Regency</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/Jakarta.jpg" data-title="DKI Jakarta" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/Jakarta.jpg" alt="DKI Jakarta Certificate">
-                    </div>
+                    <div class="certificate-img">DKI JAKARTA</div>
                     <h3 class="certificate-title">DKI Jakarta</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/JogjaKota.jpg" data-title="Kota Yogyakarta" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/JogjaKota.jpg" alt="Kota Yogyakarta Certificate">
-                    </div>
+                    <div class="certificate-img">KOTA YOGYAKARTA</div>
                     <h3 class="certificate-title">Kota Yogyakarta</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/JombangKab.jpg" data-title="Kabupaten Jombang" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/JombangKab.jpg" alt="Kabupaten Jombang Certificate">
-                    </div>
+                    <div class="certificate-img">KABUPATEN JOMBANG</div>
                     <h3 class="certificate-title">Kabupaten Jombang</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/Kemenag.jpg" data-title="Kemenag" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/Kemenag.jpg" alt="Kemenag Certificate">
-                    </div>
+                    <div class="certificate-img">KEMENAG</div>
                     <h3 class="certificate-title">Kemenag</h3>
                     <p class="certificate-date">2023</p>
                 </div>
                 <div class="certificate-card fade-in" data-image="images/SultengProv.jpg" data-title="Sulawesi Tengah Province" data-date="2023">
-                    <div class="certificate-img-container">
-                        <img src="images/SultengProv.jpg" alt="Sulawesi Tengah Province Certificate">
-                    </div>
+                    <div class="certificate-img">SULAWESI TENGAH</div>
                     <h3 class="certificate-title">Sulawesi Tengah Province</h3>
                     <p class="certificate-date">2023</p>
                 </div>
@@ -887,128 +813,57 @@
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- Contact Section -->
+    <section id="contact" class="pixel-contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" class="form-input" placeholder="Name" required>
+            <h2 class="section-title fade-in">CONTACT</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="fade-in">ARE YOU INTERESTED IN MY PORTFOLIO AND WANT TO TALK WITH ME?</p>
+                    <p class="fade-in">WRITE YOUR BEST EMAIL AND YOUR MESSAGE. I WILL ANSWER YOUR EMAIL AS SOON AS I CAN.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link fade-in">GITHUB</a>
+                        <a href="#" class="social-link fade-in">TELEGRAM</a>
+                        <a href="#" class="social-link fade-in">EMAIL</a>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" class="form-input" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" class="form-input" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" class="form-input" placeholder="Message" required></textarea>
-                    </div>
-                    <button type="submit" id="submitBtn" class="btn">SEND MESSAGE</button>
-                </form>
-                <div id="message-status"></div>
-                <div class="social-links">
-                    <a href="#" class="social-link">TG</a> 
-                    <a href="#" class="social-link">GH</a>
-                    <a href="mailto:your.email@example.com" class="social-link">@</a>
                 </div>
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <input type="email" class="pixel-input" placeholder="EMAIL" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="pixel-input" placeholder="YOUR MESSAGE" required></textarea>
+                    </div>
+                    <button type="submit" class="pixel-button">SEND MESSAGE</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="pixel-footer">
         <div class="container">
-            <p class="footer-text">© 2025 Khoirul Amri Siregar (Kasrtenn). All rights reserved.</p>
+            <p class="footer-text">© 2025 KHOIRUL AMRI SIREGAR (KASRTENN). ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
 
         // Close menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        }));
-
-        // Scroll animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, 200);
-                    observer.unobserve(entry.target);
-                }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
             });
-        }, {
-            threshold: 0.1
         });
 
-        fadeElements.forEach(el => {
-            observer.observe(el);
-        });
-
-        // Simple typing animation for H1
-        document.addEventListener('DOMContentLoaded', function() {
-            const typingTextElement = document.querySelector('.typing-text');
-            const fullText = typingTextElement.textContent;
-            typingTextElement.textContent = '';
-            
-            let i = 0;
-            function typeWriter() {
-                if (i < fullText.length) {
-                    typingTextElement.textContent += fullText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-            
-            setTimeout(typeWriter, 1000);
-        });
-
-        // Contact Form Functionality
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const messageStatus = document.getElementById('message-status');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            if (name && email && subject && message) {
-                submitBtn.textContent = 'MESSAGE SENT!';
-                submitBtn.style.backgroundColor = 'var(--pixel-yellow)';
-                submitBtn.style.color = 'var(--bg-primary)';
-                submitBtn.style.borderColor = 'var(--pixel-yellow)';
-
-                messageStatus.textContent = 'Thank you for reaching out, I will respond soon.';
-
-                setTimeout(() => {
-                    submitBtn.textContent = 'SEND MESSAGE';
-                    submitBtn.style.backgroundColor = 'var(--bg-secondary)';
-                    submitBtn.style.color = 'var(--text-primary)';
-                    submitBtn.style.borderColor = 'var(--pixel-green)';
-                    contactForm.reset();
-                    messageStatus.textContent = '';
-                }, 4000);
-            } else {
-                 messageStatus.textContent = 'ERROR: All fields are required.';
-            }
-        });
-
-        // Certificate Popup Functionality
+        // Certificate Modal Functionality
         const modal = document.getElementById('certificateModal');
         const modalImage = document.getElementById('modalImage');
         const modalTitle = document.getElementById('modalTitle');
@@ -1044,6 +899,25 @@
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
