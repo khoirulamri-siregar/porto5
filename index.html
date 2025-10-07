@@ -14,6 +14,7 @@
             --pixel-cyan: #00ffff;
             --pixel-yellow: #fbbf24;
             --pixel-green: #00ff00;
+            --pixel-red: #ff0000;
             --pixel-white: #ffffff;
             --pixel-gray: #4a5568;
         }
@@ -25,12 +26,17 @@
             image-rendering: pixelated;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: var(--pixel-dark);
             color: var(--pixel-white);
             font-family: 'Press Start 2P', cursive;
             line-height: 1.6;
             overflow-x: hidden;
+            cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBmaWxsPSIjMDBGRkZGIi8+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiMwMDAwMDAiLz4KPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIgZmlsbD0iIzAwMDAwMCIvPgo8L3N2Zz4K'), auto;
         }
 
         .container {
@@ -39,23 +45,111 @@
             padding: 0 20px;
         }
 
-        /* Animasi Fade In */
-        @keyframes fadeInUp {
-            from {
+        /* Pixel Grid Background */
+        .pixel-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.9)),
+                url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ffff' fill-opacity='0.05'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='4' y='0' width='1' height='1'/%3E%3Crect x='0' y='4' width='1' height='1'/%3E%3Crect x='4' y='4' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Scanlines Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.03) 0px,
+                rgba(0, 0, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: -1;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Animasi Fade In dengan Pixel Effect */
+        @keyframes pixelFadeIn {
+            0% {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px) scale(0.95);
+                filter: blur(2px);
             }
-            to {
+            50% {
+                opacity: 0.5;
+                transform: translateY(-5px) scale(1.02);
+            }
+            100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
+                filter: blur(0);
             }
+        }
+
+        @keyframes pixelBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pixelGlitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
 
         .fade-in {
-            animation: fadeInUp 0.6s ease-out;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Pixel Art Header */
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: pixelFadeIn 0.8s ease-out;
+        }
+
+        /* Active Section Highlight */
+        .section-highlight {
+            position: relative;
+        }
+
+        .section-highlight::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--pixel-green);
+            animation: pixelBlink 1s infinite;
+        }
+
+        @keyframes pixelBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Pixel Art Header dengan Scroll Effect */
         .pixel-header {
             background: var(--pixel-darker);
             padding: 20px 0;
@@ -64,6 +158,15 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .pixel-header.scrolled {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom-color: var(--pixel-green);
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
         }
 
         .pixel-nav {
@@ -75,6 +178,13 @@
         .logo {
             font-size: clamp(0.8rem, 3vw, 1.5rem);
             color: var(--pixel-cyan);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .logo:hover {
+            animation: pixelGlitch 0.3s ease;
+            color: var(--pixel-green);
         }
 
         .nav-links {
@@ -90,30 +200,64 @@
             padding: 8px 16px;
             border: 3px solid var(--pixel-cyan);
             background: var(--pixel-dark);
-            transition: all 0.2s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--pixel-cyan), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
         }
 
         .nav-links a:hover {
             background: var(--pixel-cyan);
             color: var(--pixel-dark);
             transform: translate(2px, 2px);
+            border-color: var(--pixel-green);
+        }
+
+        .nav-links a.active {
+            background: var(--pixel-green);
+            color: var(--pixel-dark);
+            border-color: var(--pixel-yellow);
+            animation: pixelBounce 0.5s ease;
         }
 
         .hamburger {
             display: none;
             background: none;
-            border: none;
+            border: 3px solid var(--pixel-cyan);
             color: var(--pixel-cyan);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 5px;
+            transition: all 0.3s;
         }
 
-        /* Hero Section */
+        .hamburger:hover {
+            border-color: var(--pixel-green);
+            color: var(--pixel-green);
+            transform: translate(2px, 2px);
+        }
+
+        /* Hero Section dengan Enhanced Animations */
         .pixel-hero {
             padding: 120px 0 80px;
             background: var(--pixel-dark);
             position: relative;
             border-bottom: 4px solid var(--pixel-yellow);
+            overflow: hidden;
         }
 
         .hero-content {
@@ -131,12 +275,18 @@
             border: 6px solid var(--pixel-cyan);
             position: relative;
             margin: 0 auto;
-            animation: float 3s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite, pixelBorderGlow 2s ease-in-out infinite alternate;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        @keyframes pixelBorderGlow {
+            0% { border-color: var(--pixel-cyan); box-shadow: 0 0 10px var(--pixel-cyan); }
+            100% { border-color: var(--pixel-green); box-shadow: 0 0 20px var(--pixel-green); }
         }
 
         .pixel-character::before {
@@ -148,12 +298,36 @@
             color: var(--pixel-green);
             font-size: 1.2rem;
             text-align: center;
+            animation: textGlitch 3s infinite;
+        }
+
+        @keyframes textGlitch {
+            0%, 100% { transform: translate(-50%, -50%); }
+            95% { transform: translate(-50%, -50%); }
+            96% { transform: translate(-51%, -51%); }
+            97% { transform: translate(-49%, -49%); }
+            98% { transform: translate(-50%, -50%); }
         }
 
         .hero-text h1 {
             font-size: clamp(1rem, 4vw, 2rem);
             color: var(--pixel-yellow);
             margin-bottom: 20px;
+            text-shadow: 3px 3px 0 var(--pixel-dark);
+            animation: titleEntrance 1s ease-out;
+        }
+
+        @keyframes titleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) scale(0.8);
+                text-shadow: 10px 10px 0 var(--pixel-dark);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+                text-shadow: 3px 3px 0 var(--pixel-dark);
+            }
         }
 
         .hero-text p {
@@ -176,17 +350,34 @@
             overflow: hidden;
         }
 
+        .pixel-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .pixel-button:hover::before {
+            left: 100%;
+        }
+
         .pixel-button:hover {
             background: var(--pixel-yellow);
             transform: translate(3px, 3px);
             box-shadow: 0 0 15px var(--pixel-yellow);
+            animation: pixelGlitch 0.3s ease;
         }
 
-        /* About Section */
+        /* About Section dengan Scroll Effects */
         .pixel-about {
             padding: 80px 0;
             background: var(--pixel-darker);
             border-bottom: 4px solid var(--pixel-cyan);
+            position: relative;
         }
 
         .section-title {
@@ -194,6 +385,19 @@
             color: var(--pixel-yellow);
             text-align: center;
             margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--pixel-green);
+            animation: pixelBlink 2s infinite;
         }
 
         .about-content {
@@ -212,6 +416,18 @@
             background: var(--pixel-dark);
             padding: 30px;
             border: 4px solid var(--pixel-cyan);
+            position: relative;
+        }
+
+        .pixel-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--pixel-green);
+            animation: pixelBlink 1.5s infinite;
         }
 
         .timeline-item {
@@ -220,11 +436,26 @@
             background: var(--pixel-darker);
             border: 3px solid var(--pixel-green);
             transition: all 0.3s;
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--pixel-yellow);
+            border: 2px solid var(--pixel-cyan);
         }
 
         .timeline-item:hover {
             transform: translateX(10px);
             border-color: var(--pixel-yellow);
+            box-shadow: 5px 5px 0 var(--pixel-cyan);
         }
 
         .timeline-item h3 {
@@ -238,7 +469,7 @@
             color: var(--pixel-white);
         }
 
-        /* Skills Section */
+        /* Skills Section dengan Staggered Animations */
         .pixel-skills {
             padding: 80px 0;
             background: var(--pixel-dark);
@@ -256,12 +487,32 @@
             padding: 30px;
             border: 4px solid var(--pixel-cyan);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
         }
 
         .skill-category:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotate(1deg);
             border-color: var(--pixel-green);
-            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
         }
 
         .skill-category h3 {
@@ -269,6 +520,18 @@
             margin-bottom: 20px;
             font-size: clamp(0.7rem, 2vw, 1rem);
             text-align: center;
+            position: relative;
+        }
+
+        .skill-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--pixel-green);
         }
 
         .skill-list {
@@ -283,6 +546,13 @@
             transition: all 0.3s;
             position: relative;
             padding-left: 20px;
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .skill-item.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .skill-item::before {
@@ -290,14 +560,21 @@
             position: absolute;
             left: 0;
             color: var(--pixel-green);
+            transition: all 0.3s;
         }
 
         .skill-item:hover {
             color: var(--pixel-cyan);
             transform: translateX(5px);
+            border-bottom-color: var(--pixel-cyan);
         }
 
-        /* Certificates Section */
+        .skill-item:hover::before {
+            color: var(--pixel-yellow);
+            transform: scale(1.2);
+        }
+
+        /* Certificates Section dengan Enhanced Effects */
         .pixel-certificates {
             padding: 80px 0;
             background: var(--pixel-darker);
@@ -319,6 +596,13 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8) rotate(-5deg);
+        }
+
+        .certificate-card.visible {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
         }
 
         .certificate-card::before {
@@ -340,9 +624,10 @@
         }
 
         .certificate-card:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: translateY(-10px) scale(1.05) rotate(2deg);
             border-color: var(--pixel-cyan);
-            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+            animation: pixelGlitch 0.3s ease;
         }
 
         .certificate-img {
@@ -357,11 +642,29 @@
             color: var(--pixel-green);
             font-size: clamp(0.6rem, 1.5vw, 0.8rem);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .certificate-card:hover .certificate-img::before {
+            left: 100%;
         }
 
         .certificate-card:hover .certificate-img {
             border-color: var(--pixel-cyan);
             color: var(--pixel-cyan);
+            transform: scale(1.1);
         }
 
         .certificate-title {
@@ -373,6 +676,7 @@
 
         .certificate-card:hover .certificate-title {
             color: var(--pixel-green);
+            animation: pixelBounce 0.5s ease;
         }
 
         .certificate-date {
@@ -380,7 +684,7 @@
             font-size: clamp(0.6rem, 1.5vw, 0.8rem);
         }
 
-        /* Modal Popup */
+        /* Modal Popup dengan Enhanced Animations */
         .modal {
             display: none;
             position: fixed;
@@ -388,14 +692,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 2000;
-            animation: fadeIn 0.3s ease;
+            animation: modalFadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes modalFadeIn {
+            from { 
+                opacity: 0;
+                backdrop-filter: blur(0px);
+            }
+            to { 
+                opacity: 1;
+                backdrop-filter: blur(10px);
+            }
         }
 
         .modal-content {
@@ -409,17 +719,18 @@
             max-width: 90%;
             max-height: 90%;
             overflow: auto;
-            animation: slideIn 0.4s ease;
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
         }
 
-        @keyframes slideIn {
+        @keyframes modalSlideIn {
             from {
                 opacity: 0;
-                transform: translate(-50%, -60%);
+                transform: translate(-50%, -60%) scale(0.8);
             }
             to {
                 opacity: 1;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%) scale(1);
             }
         }
 
@@ -429,6 +740,7 @@
             height: auto;
             border: 4px solid var(--pixel-yellow);
             margin-bottom: 20px;
+            animation: pixelBorderGlow 2s ease-in-out infinite alternate;
         }
 
         .modal-title {
@@ -436,6 +748,7 @@
             font-size: clamp(1rem, 3vw, 1.5rem);
             text-align: center;
             margin-bottom: 10px;
+            animation: textGlitch 3s infinite;
         }
 
         .modal-date {
@@ -463,6 +776,7 @@
             background: var(--pixel-cyan);
             color: var(--pixel-dark);
             transform: translate(2px, 2px);
+            animation: pixelGlitch 0.3s ease;
         }
 
         /* Contact Section */
@@ -487,10 +801,31 @@
             background: var(--pixel-darker);
             padding: 30px;
             border: 4px solid var(--pixel-cyan);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+            transform: rotate(45deg);
+            animation: formShine 6s linear infinite;
+        }
+
+        @keyframes formShine {
+            0% { transform: rotate(45deg) translate(-50%, -50%); }
+            100% { transform: rotate(45deg) translate(50%, 50%); }
         }
 
         .form-group {
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .pixel-input {
@@ -502,12 +837,16 @@
             font-family: 'Press Start 2P', cursive;
             font-size: clamp(0.6rem, 1.5vw, 0.8rem);
             transition: all 0.3s;
+            position: relative;
+            z-index: 1;
         }
 
         .pixel-input:focus {
             outline: none;
             border-color: var(--pixel-yellow);
-            box-shadow: 0 0 10px var(--pixel-yellow);
+            box-shadow: 0 0 15px var(--pixel-yellow);
+            transform: translateY(-2px);
+            animation: pixelGlitch 0.3s ease;
         }
 
         textarea.pixel-input {
@@ -531,12 +870,30 @@
             border: 3px solid var(--pixel-yellow);
             font-size: clamp(0.6rem, 1.5vw, 0.8rem);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
         }
 
         .social-link:hover {
             background: var(--pixel-yellow);
             transform: translate(2px, 2px);
             box-shadow: 0 0 15px var(--pixel-yellow);
+            animation: pixelGlitch 0.3s ease;
         }
 
         /* Footer */
@@ -545,11 +902,26 @@
             padding: 30px 0;
             text-align: center;
             border-top: 4px solid var(--pixel-green);
+            position: relative;
         }
 
         .footer-text {
             color: var(--pixel-white);
             font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+            animation: pixelBlink 3s infinite;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pixel-cyan), var(--pixel-green));
+            z-index: 1001;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--pixel-cyan);
         }
 
         /* Responsive Design */
@@ -568,6 +940,18 @@
                 flex-direction: column;
                 padding: 20px;
                 border-top: 4px solid var(--pixel-cyan);
+                animation: slideDown 0.3s ease;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
 
             .nav-links.active {
@@ -634,6 +1018,11 @@
     </style>
 </head>
 <body>
+    <!-- Background Effects -->
+    <div class="pixel-bg"></div>
+    <div class="scanlines"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Certificate Modal Popup -->
     <div id="certificateModal" class="modal">
         <div class="modal-content">
@@ -645,15 +1034,15 @@
     </div>
 
     <!-- Header -->
-    <header class="pixel-header">
+    <header class="pixel-header" id="header">
         <div class="container">
             <nav class="pixel-nav">
                 <div class="logo">KASRTENN</div>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#about">ABOUT ME</a></li>
-                    <li><a href="#skills">SKILLS</a></li>
-                    <li><a href="#certificates">CERTIFICATES</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#about" class="nav-link">ABOUT ME</a></li>
+                    <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                    <li><a href="#certificates" class="nav-link">CERTIFICATES</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
                 </ul>
                 <button class="hamburger" id="hamburger">☰</button>
             </nav>
@@ -661,7 +1050,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="pixel-hero">
+    <section class="pixel-hero" id="home">
         <div class="container">
             <div class="hero-content fade-in">
                 <div class="pixel-character">
@@ -848,18 +1237,120 @@
     </footer>
 
     <script>
+        // Enhanced Scroll Effects
+        const header = document.getElementById('header');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const skillItems = document.querySelectorAll('.skill-item');
+        const certificateCards = document.querySelectorAll('.certificate-card');
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset;
+            const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+            
+            scrollProgress.style.width = scrollPercent + '%';
+
+            // Header scroll effect
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Active nav link based on scroll position
+            const sections = document.querySelectorAll('section');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Staggered animations for skill items
+            skillItems.forEach((item, index) => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+
+            // Staggered animations for certificate cards
+            certificateCards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+        });
+
+        // Enhanced Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
         // Mobile menu toggle
         const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        const navLinksContainer = document.getElementById('navLinks');
 
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
+            hamburger.textContent = navLinksContainer.classList.contains('active') ? '✕' : '☰';
         });
 
         // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        // Smooth scroll for navigation links with animation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -871,7 +1362,7 @@
         const closeModal = document.getElementById('closeModal');
 
         // Add click event to all certificate cards
-        document.querySelectorAll('.certificate-card').forEach(card => {
+        certificateCards.forEach(card => {
             card.addEventListener('click', () => {
                 const imageSrc = card.getAttribute('data-image');
                 const title = card.getAttribute('data-title');
@@ -901,23 +1392,44 @@
             }
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
+        // Pixel cursor effect
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.style.position = 'fixed';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.width = '4px';
+            cursor.style.height = '4px';
+            cursor.style.background = 'var(--pixel-green)';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.zIndex = '9999';
+            document.body.appendChild(cursor);
 
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+            setTimeout(() => {
+                cursor.remove();
+            }, 1000);
+        });
+
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 500);
         });
     </script>
 </body>
