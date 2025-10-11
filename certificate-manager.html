@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Manager - Kasrtenn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pixel-dark: #0a0a0f;
+            --pixel-darker: #1a1a2e;
+            --pixel-cyan: #00ffff;
+            --pixel-yellow: #fbbf24;
+            --pixel-green: #00ff00;
+            --pixel-red: #ff0000;
+            --pixel-white: #ffffff;
+            --pixel-gray: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--pixel-dark);
+            color: var(--pixel-white);
+            font-family: 'Press Start 2P', cursive;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--pixel-darker);
+            border: 3px solid var(--pixel-cyan);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--pixel-cyan);
+        }
+
+        .header h1 {
+            color: var(--pixel-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            background: var(--pixel-green);
+            color: var(--pixel-dark);
+            border: 2px solid var(--pixel-yellow);
+            padding: 10px 20px;
+            font-family: 'Press Start 2P', cursive;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: var(--pixel-yellow);
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: var(--pixel-dark);
+            border: 2px solid var(--pixel-green);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-title {
+            color: var(--pixel-cyan);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--pixel-yellow);
+            font-size: 0.7rem;
+            margin-bottom: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            background: var(--pixel-darker);
+            border: 2px solid var(--pixel-cyan);
+            color: var(--pixel-white);
+            padding: 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--pixel-yellow);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 2px solid;
+            font-family: 'Press Start 2P', cursive;
+            cursor: pointer;
+            font-size: 0.6rem;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: var(--pixel-green);
+            color: var(--pixel-dark);
+            border-color: var(--pixel-yellow);
+        }
+
+        .btn-secondary {
+            background: var(--pixel-gray);
+            color: var(--pixel-white);
+            border-color: var(--pixel-gray);
+        }
+
+        .btn-danger {
+            background: var(--pixel-red);
+            color: var(--pixel-white);
+            border-color: var(--pixel-dark);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Certificates Grid */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .certificate-card {
+            background: var(--pixel-dark);
+            border: 2px solid var(--pixel-yellow);
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .certificate-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--pixel-darker);
+            border: 2px solid var(--pixel-white);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .certificate-name {
+            font-size: 0.6rem;
+            color: var(--pixel-white);
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+
+        .certificate-year {
+            font-size: 0.5rem;
+            color: var(--pixel-cyan);
+        }
+
+        .certificate-actions {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .action-btn {
+            background: var(--pixel-darker);
+            border: 1px solid;
+            color: var(--pixel-white);
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.5rem;
+        }
+
+        .edit-btn {
+            border-color: var(--pixel-cyan);
+        }
+
+        .delete-btn {
+            border-color: var(--pixel-red);
+        }
+
+        .empty-state {
+            text-align: center;
+            color: var(--pixel-gray);
+            font-size: 0.8rem;
+            padding: 40px;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--pixel-darker);
+            border: 3px solid var(--pixel-cyan);
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .modal-title {
+            color: var(--pixel-yellow);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Password Protection */
+        .password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--pixel-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .password-box {
+            background: var(--pixel-darker);
+            border: 3px solid var(--pixel-cyan);
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-title {
+            color: var(--pixel-yellow);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            background: var(--pixel-dark);
+            border: 2px solid var(--pixel-green);
+            color: var(--pixel-white);
+            padding: 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            color: var(--pixel-red);
+            font-size: 0.6rem;
+            margin-bottom: 15px;
+            min-height: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .certificates-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Screen -->
+    <div class="password-screen" id="password-screen">
+        <div class="password-box">
+            <div class="password-title">ADMIN ACCESS REQUIRED</div>
+            <input type="password" class="password-input" id="password-input" placeholder="ENTER PASSWORD" autofocus>
+            <div class="error-message" id="error-message"></div>
+            <button class="btn btn-primary" onclick="checkPassword()">ACCESS MANAGER</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden until authenticated) -->
+    <div class="container" id="main-content" style="display: none;">
+        <a href="index.html" class="back-btn">← BACK TO PORTFOLIO</a>
+        
+        <div class="header">
+            <h1>CERTIFICATE MANAGER</h1>
+            <p style="color: var(--pixel-cyan); font-size: 0.7rem;">Manage your certificates easily</p>
+        </div>
+
+        <!-- Add/Edit Form -->
+        <div class="form-container">
+            <div class="form-title" id="form-title">ADD NEW CERTIFICATE</div>
+            <form id="certificate-form">
+                <input type="hidden" id="certificate-id">
+                
+                <div class="form-group">
+                    <label class="form-label" for="name">CERTIFICATE NAME</label>
+                    <input type="text" id="name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="year">YEAR</label>
+                    <input type="text" id="year" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="icon">ICON TEXT (2-3 letters)</label>
+                    <input type="text" id="icon" class="form-input" maxlength="3" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="image">IMAGE PATH</label>
+                    <input type="text" id="image" class="form-input" placeholder="images/filename.jpg" required>
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">ADD CERTIFICATE</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">CANCEL</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Certificates List -->
+        <div class="form-container">
+            <div class="form-title">YOUR CERTIFICATES</div>
+            <div id="certificates-list" class="certificates-grid">
+                <!-- Certificates will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-content">
+            <div class="modal-title">CONFIRM DELETE</div>
+            <p style="text-align: center; font-size: 0.7rem; margin-bottom: 20px;">Are you sure you want to delete this certificate?</p>
+            <div class="btn-group">
+                <button class="btn btn-danger" id="confirm-delete">DELETE</button>
+                <button class="btn btn-secondary" id="cancel-delete">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== PASSWORD PROTECTION ====================
+        const ADMIN_PASSWORD = "kasrtenn123"; // GANTI PASSWORD INI!
+
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            const errorMessage = document.getElementById('error-message');
+            
+            if (input === ADMIN_PASSWORD) {
+                // Password correct
+                localStorage.setItem('admin_authenticated', 'true');
+                document.getElementById('password-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                loadCertificates();
+            } else {
+                // Password incorrect
+                errorMessage.textContent = 'WRONG PASSWORD! TRY AGAIN.';
+                document.getElementById('password-input').value = '';
+                document.getElementById('password-input').focus();
+            }
+        }
+
+        // Check if already authenticated
+        if (localStorage.getItem('admin_authenticated') === 'true') {
+            document.getElementById('password-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+
+        // Enter key support for password
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // ==================== DATABASE ====================
+        const CertificateDB = {
+            STORAGE_KEY: 'kasrtenn_certificates',
+            
+            getAll: function() {
+                const data = localStorage.getItem(this.STORAGE_KEY);
+                return data ? JSON.parse(data) : [];
+            },
+            
+            getById: function(id) {
+                const certificates = this.getAll();
+                return certificates.find(cert => cert.id === id);
+            },
+            
+            add: function(certificate) {
+                const certificates = this.getAll();
+                const newCert = {
+                    id: Date.now().toString(),
+                    ...certificate,
+                    createdAt: new Date().toISOString()
+                };
+                certificates.push(newCert);
+                localStorage.setItem(this.STORAGE_KEY, JSON.stringify(certificates));
+                return newCert;
+            },
+            
+            update: function(id, updatedData) {
+                const certificates = this.getAll();
+                const index = certificates.findIndex(cert => cert.id === id);
+                if (index !== -1) {
+                    certificates[index] = { ...certificates[index], ...updatedData, updatedAt: new Date().toISOString() };
+                    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(certificates));
+                    return certificates[index];
+                }
+                return null;
+            },
+            
+            delete: function(id) {
+                const certificates = this.getAll();
+                const filtered = certificates.filter(cert => cert.id !== id);
+                localStorage.setItem(this.STORAGE_KEY, JSON.stringify(filtered));
+                return filtered.length !== certificates.length;
+            },
+            
+            init: function() {
+                const certificates = this.getAll();
+                if (certificates.length === 0) {
+                    const sampleData = [
+                        {
+                            id: '1',
+                            name: 'Gunungkidul Regency',
+                            year: '2023',
+                            image: 'images/GunungKidulKab.png',
+                            icon: 'GD'
+                        },
+                        {
+                            id: '2', 
+                            name: 'D.I. Yogyakarta',
+                            year: '2023',
+                            image: 'images/JogjaProv.jpg',
+                            icon: 'YOG'
+                        }
+                    ];
+                    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(sampleData));
+                }
+            }
+        };
+
+        // Initialize database
+        CertificateDB.init();
+
+        // ==================== CERTIFICATE MANAGER ====================
+        class CertificateManager {
+            constructor() {
+                this.currentEditingId = null;
+                this.certificateToDelete = null;
+                this.initializeEventListeners();
+            }
+
+            initializeEventListeners() {
+                // Form submission
+                document.getElementById('certificate-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.saveCertificate();
+                });
+
+                // Cancel button
+                document.getElementById('cancel-btn').addEventListener('click', () => {
+                    this.resetForm();
+                });
+
+                // Delete modal
+                document.getElementById('confirm-delete').addEventListener('click', () => {
+                    this.deleteCertificate();
+                });
+
+                document.getElementById('cancel-delete').addEventListener('click', () => {
+                    this.closeDeleteModal();
+                });
+            }
+
+            loadCertificates() {
+                const certificates = CertificateDB.getAll();
+                const container = document.getElementById('certificates-list');
+                
+                if (certificates.length === 0) {
+                    container.innerHTML = '<div class="empty-state">No certificates found. Add your first certificate!</div>';
+                    return;
+                }
+
+                container.innerHTML = certificates.map(cert => `
+                    <div class="certificate-card">
+                        <div class="certificate-actions">
+                            <button class="action-btn edit-btn" onclick="certManager.editCertificate('${cert.id}')">✎</button>
+                            <button class="action-btn delete-btn" onclick="certManager.showDeleteModal('${cert.id}')">✕</button>
+                        </div>
+                        <div class="certificate-icon">${cert.icon}</div>
+                        <div class="certificate-name">${cert.name}</div>
+                        <div class="certificate-year">${cert.year}</div>
+                    </div>
+                `).join('');
+            }
+
+            saveCertificate() {
+                const formData = {
+                    name: document.getElementById('name').value,
+                    year: document.getElementById('year').value,
+                    icon: document.getElementById('icon').value,
+                    image: document.getElementById('image').value
+                };
+
+                if (this.currentEditingId) {
+                    // Update existing
+                    CertificateDB.update(this.currentEditingId, formData);
+                } else {
+                    // Add new
+                    CertificateDB.add(formData);
+                }
+
+                this.resetForm();
+                this.loadCertificates();
+                
+                // Show success message
+                alert('Certificate saved successfully!');
+            }
+
+            editCertificate(id) {
+                const certificate = CertificateDB.getById(id);
+                if (certificate) {
+                    this.currentEditingId = id;
+                    document.getElementById('certificate-id').value = id;
+                    document.getElementById('name').value = certificate.name;
+                    document.getElementById('year').value = certificate.year;
+                    document.getElementById('icon').value = certificate.icon;
+                    document.getElementById('image').value = certificate.image;
+                    
+                    document.getElementById('form-title').textContent = 'EDIT CERTIFICATE';
+                    document.getElementById('submit-btn').textContent = 'UPDATE CERTIFICATE';
+                    document.getElementById('cancel-btn').style.display = 'block';
+                }
+            }
+
+            showDeleteModal(id) {
+                this.certificateToDelete = id;
+                document.getElementById('delete-modal').classList.add('active');
+            }
+
+            deleteCertificate() {
+                if (this.certificateToDelete) {
+                    CertificateDB.delete(this.certificateToDelete);
+                    this.loadCertificates();
+                    this.closeDeleteModal();
+                    alert('Certificate deleted successfully!');
+                }
+            }
+
+            closeDeleteModal() {
+                this.certificateToDelete = null;
+                document.getElementById('delete-modal').classList.remove('active');
+            }
+
+            resetForm() {
+                this.currentEditingId = null;
+                document.getElementById('certificate-form').reset();
+                document.getElementById('certificate-id').value = '';
+                document.getElementById('form-title').textContent = 'ADD NEW CERTIFICATE';
+                document.getElementById('submit-btn').textContent = 'ADD CERTIFICATE';
+                document.getElementById('cancel-btn').style.display = 'none';
+            }
+        }
+
+        // Initialize the certificate manager
+        const certManager = new CertificateManager();
+
+        // Load certificates if authenticated
+        if (localStorage.getItem('admin_authenticated') === 'true') {
+            certManager.loadCertificates();
+        }
+    </script>
+</body>
+</html>
