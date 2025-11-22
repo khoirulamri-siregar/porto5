@@ -1328,6 +1328,41 @@
             color: var(--primary);
         }
 
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            color: var(--text);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
         /* Responsive Styles */
         @media (max-width: 1200px) {
             .container {
@@ -1448,6 +1483,14 @@
             .certificate-details {
                 grid-template-columns: 1fr;
             }
+
+            .certificate-image {
+                max-height: 300px;
+            }
+
+            .search-container {
+                margin: 0 auto 30px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1494,7 +1537,7 @@
             }
 
             .certificate-image {
-                max-height: 300px;
+                max-height: 250px;
             }
         }
 
@@ -1541,7 +1584,6 @@
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="admin.html" style="color: var(--accent); font-weight: 600;"><i class="fas fa-lock"></i> Admin</a></li>
                 </ul>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
                     <i class="fas fa-bars" aria-hidden="true"></i>
@@ -1811,6 +1853,15 @@
         <div class="container">
             <h2>Certifications & Recognitions</h2>
             <p class="section-subtitle">Professional certifications and hall of fame acknowledgments</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="certificateSearch" class="search-input" placeholder="Search certificates...">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
             <div class="certifications-grid" id="certificationsGrid">
                 <div class="loading">
                     <i class="fas fa-spinner fa-spin"></i>
@@ -1952,7 +2003,7 @@
     </footer>
 
     <script>
-        // Supabase Configuration
+        // Supabase Configuration - GUNAKAN ANON KEY UNTUK CLIENT SIDE
         const SUPABASE_URL = 'https://oskpcmehpbbqbqzzgvor.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9za3BjbWVocGJicWJxenpndm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MDAzNzEsImV4cCI6MjA3OTM3NjM3MX0.YI9gQ8qb4vaO_Gd5JQiN9m71DYzSbH0E-NXpm9jYB9k';
         
@@ -2129,6 +2180,12 @@
                 return;
             }
 
+            displayCertificates(certificates);
+        }
+
+        // Display certificates
+        function displayCertificates(certificates) {
+            const grid = document.getElementById('certificationsGrid');
             grid.innerHTML = '';
 
             if (certificates && certificates.length > 0) {
@@ -2150,11 +2207,25 @@
                 grid.innerHTML = `
                     <div class="loading">
                         <i class="fas fa-inbox"></i>
-                        <p>No certificates found. Add some from the admin panel.</p>
+                        <p>No certificates found.</p>
                     </div>
                 `;
             }
         }
+
+        // Search functionality
+        const searchInput = document.getElementById('certificateSearch');
+        let allCertificates = [];
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredCertificates = allCertificates.filter(cert => 
+                cert.title.toLowerCase().includes(searchTerm) ||
+                cert.organization.toLowerCase().includes(searchTerm) ||
+                (cert.description && cert.description.toLowerCase().includes(searchTerm))
+            );
+            displayCertificates(filteredCertificates);
+        });
 
         // Certificate Modal
         const certificateModal = document.getElementById('certificateModal');
@@ -2281,7 +2352,18 @@
         // Initialize animations when page loads
         window.addEventListener('load', () => {
             animateSkillBars();
-            loadCertificates();
+            
+            // Load certificates and store them for search
+            supabase
+                .from('certificates')
+                .select('*')
+                .order('date_awarded', { ascending: false })
+                .then(({ data: certificates, error }) => {
+                    if (!error) {
+                        allCertificates = certificates || [];
+                        displayCertificates(allCertificates);
+                    }
+                });
 
             document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
                 el.style.opacity = '0';
