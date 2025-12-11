@@ -3,12 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KASRTENN - Bug Hunter & Security Researcher</title>
+    
+    <!-- ==================== SEO OPTIMIZATION ==================== -->
+    <title>Khoirul Amri Siregar - Bug Hunter & Security Researcher Indonesia</title>
+    <meta name="description" content="Khoirul Amri Siregar (KASRTENN) - Bug Hunter & Security Researcher Indonesia. Spesialis penetration testing, ethical hacking, vulnerability assessment untuk pemerintah dan perusahaan.">
+    <meta name="keywords" content="Khoirul Amri Siregar, bug hunter Indonesia, security researcher, penetration testing, ethical hacking, cybersecurity, vulnerability assessment, bug bounty, KASRTENN">
+    <meta name="author" content="Khoirul Amri Siregar">
+    <link rel="canonical" href="https://kasrtennbughunter.vercel.app/" />
+    
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Khoirul Amri Siregar - Bug Hunter & Security Researcher">
+    <meta property="og:description" content="Bug Hunter & Security Researcher Indonesia spesialis penetration testing dan ethical hacking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kasrtennbughunter.vercel.app/">
+    <meta property="og:image" content="https://kasrtennbughunter.vercel.app/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Khoirul Amri Siregar - Bug Hunter & Security Researcher">
+    <meta name="twitter:description" content="Bug Hunter & Security Researcher Indonesia spesialis penetration testing.">
+    
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Khoirul Amri Siregar",
+        "alternateName": "KASRTENN",
+        "url": "https://kasrtennbughunter.vercel.app",
+        "description": "Bug Hunter & Security Researcher Indonesia spesialis penetration testing dan ethical hacking",
+        "jobTitle": "Bug Hunter & Security Researcher",
+        "email": "khoirulregar.212@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Indonesia"
+        }
+    }
+    </script>
+    
+    <!-- ==================== STYLES & FONTS ==================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- CSS STYLES -->
     <style>
         :root {
             --primary: #7c3aed;
@@ -30,10 +69,15 @@
             --transition: all 0.3s ease;
             --glass: rgba(255, 255, 255, 0.7);
             --glass-border: rgba(255, 255, 255, 0.3);
-            --header-height: 80px; /* default header height */
+            --header-height: 80px;
         }
 
-        /* Ensure header doesn't overlap content: body top padding equals header height */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             padding-top: var(--header-height);
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -41,12 +85,6 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -122,26 +160,6 @@
             transition: var(--transition);
             box-shadow: var(--shadow);
             font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-dark), var(--accent));
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .btn:hover::before {
-            opacity: 1;
         }
 
         .btn:hover {
@@ -212,21 +230,7 @@
             background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.35));
             border: 1px solid rgba(124,58,237,0.08);
             box-shadow: 0 6px 20px rgba(124,58,237,0.04);
-            transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
-            align-self: flex-start;
-            animation: fadeInDown 0.6s ease both;
-        }
-
-        .logo i {
-            color: var(--accent);
-            font-size: 1.15em;
-            display: inline-block;
-            transform-origin: center;
-        }
-
-        .logo .logo-text {
-            display: inline-block;
-            line-height: 1;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
         .logo:hover {
@@ -283,10 +287,6 @@
             transition: var(--transition);
         }
 
-        .mobile-menu-btn:focus {
-            outline: 2px solid rgba(124,58,237,0.15);
-        }
-
         /* Hero Section */
         .hero {
             min-height: calc(100vh - var(--header-height));
@@ -298,18 +298,6 @@
             padding-top: 40px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(124, 58, 237, 0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.35;
-            pointer-events: none;
-        }
-
         .hero-content {
             position: relative;
             z-index: 2;
@@ -318,7 +306,6 @@
             border-radius: 14px;
             padding: 28px;
             box-shadow: 0 10px 30px rgba(16,24,40,0.04);
-            transition: var(--transition);
             backdrop-filter: blur(6px);
         }
 
@@ -420,17 +407,6 @@
             box-shadow: 0 25px 50px rgba(124, 58, 237, 0.15);
         }
 
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.07), rgba(236, 72, 153, 0.06));
-            z-index: 1;
-        }
-
         .profile-placeholder {
             display: flex;
             flex-direction: column;
@@ -439,7 +415,6 @@
             color: var(--primary);
             text-align: center;
             padding: 20px;
-            z-index: 2;
         }
 
         .profile-placeholder i {
@@ -551,8 +526,6 @@
             border: 1px solid var(--glass-border);
             transition: var(--transition);
             cursor: pointer;
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .portfolio-item:hover {
@@ -616,13 +589,10 @@
             z-index: 2000;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         .portfolio-modal.active {
             display: flex;
-            opacity: 1;
         }
 
         .portfolio-modal-content {
@@ -633,13 +603,6 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: scale(0.95);
-            transition: transform 0.28s ease;
-        }
-
-        .portfolio-modal.active .portfolio-modal-content {
-            transform: scale(1);
         }
 
         .portfolio-modal-header {
@@ -650,33 +613,16 @@
             align-items: center;
         }
 
-        .portfolio-modal-header h3 {
-            margin: 0;
-            color: var(--primary);
-        }
-
         .close-portfolio-modal {
             background: none;
             border: none;
             font-size: 1.5rem;
             color: var(--text-light);
             cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-portfolio-modal:hover {
-            color: var(--primary);
         }
 
         .portfolio-modal-body {
             padding: 30px;
-        }
-
-        .portfolio-modal-image {
-            width: 100%;
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
         }
 
         .portfolio-modal-details {
@@ -700,10 +646,6 @@
         }
 
         /* Certifications Section */
-        .certifications {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        }
-
         .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -720,25 +662,6 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .certification-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(236, 72, 153, 0.05));
-            z-index: 1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .certification-item:hover::before {
-            opacity: 1;
         }
 
         .certification-item:hover {
@@ -757,23 +680,17 @@
             margin: 0 auto 20px;
             color: white;
             font-size: 2rem;
-            position: relative;
-            z-index: 2;
         }
 
         .cert-name {
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--dark);
-            position: relative;
-            z-index: 2;
         }
 
         .cert-org {
             color: var(--text-light);
             font-size: 1rem;
-            position: relative;
-            z-index: 2;
         }
 
         .cert-date {
@@ -781,8 +698,6 @@
             color: var(--primary);
             font-weight: 600;
             font-size: 0.9rem;
-            position: relative;
-            z-index: 2;
         }
 
         /* Certificate Modal */
@@ -812,7 +727,6 @@
             max-height: 90vh;
             overflow: auto;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
         .certificate-modal-header {
@@ -826,24 +740,12 @@
             border-radius: var(--radius) var(--radius) 0 0;
         }
 
-        .certificate-modal-header h3 {
-            margin: 0;
-            color: white;
-        }
-
         .close-certificate-modal {
             background: none;
             border: none;
             font-size: 1.5rem;
             color: white;
             cursor: pointer;
-            transition: var(--transition);
-            padding: 5px;
-            border-radius: 5px;
-        }
-
-        .close-certificate-modal:hover {
-            background: rgba(255, 255, 255, 0.2);
         }
 
         .certificate-modal-body {
@@ -857,7 +759,6 @@
             border-radius: var(--radius);
             margin-bottom: 25px;
             box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
         }
 
         .certificate-details {
@@ -912,7 +813,6 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
-            cursor: pointer;
         }
 
         .contact-item:hover {
@@ -971,54 +871,11 @@
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.08);
-            background: white;
         }
 
         textarea.form-control {
             min-height: 150px;
             resize: vertical;
-        }
-
-        /* Form Notification Styles */
-        .form-notification {
-            position: relative;
-            padding: 15px 20px;
-            margin-top: 20px;
-            border-radius: var(--radius);
-            animation: slideInUp 0.3s ease;
-        }
-
-        .form-notification.success {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            color: #065f46;
-        }
-
-        .form-notification.error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #7f1d1d;
-        }
-
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .notification-content i {
-            font-size: 1.2rem;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Footer */
@@ -1043,11 +900,6 @@
         .footer-about p {
             color: #cbd5e1;
             margin-bottom: 25px;
-        }
-
-        .footer-links h4, .footer-social h4 {
-            margin-bottom: 25px;
-            color: white;
         }
 
         .footer-links ul {
@@ -1099,235 +951,6 @@
             font-size: 0.95rem;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes typewriter {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .fade-in-left {
-            animation: fadeInLeft 0.8s ease forwards;
-        }
-
-        .fade-in-right {
-            animation: fadeInRight 0.8s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        .bounce {
-            animation: bounce 1s;
-        }
-
-        .float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .typewriter {
-            overflow: hidden;
-            border-right: 2px solid var(--primary);
-            white-space: nowrap;
-            animation: typewriter 3s steps(40) 1s 1 normal both;
-        }
-
-        /* Ripple Effect */
-        .ripple {
-            position: relative;
-            overflow: hidden;
-            transform: translate3d(0, 0, 0);
-        }
-
-        .ripple:after {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 10.01%);
-            background-repeat: no-repeat;
-            background-position: 50%;
-            transform: scale(10, 10);
-            opacity: 0;
-            transition: transform .5s, opacity 1s;
-        }
-
-        .ripple:active:after {
-            transform: scale(0, 0);
-            opacity: .2;
-            transition: 0s;
-        }
-
-        /* Floating Elements */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(124, 58, 237, 0.08);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            filter: blur(6px);
-        }
-
-        .floating-element:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 8%;
-            left: 6%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 18%;
-            right: 8%;
-            animation-delay: 1s;
-            animation-duration: 8s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 14%;
-            animation-delay: 2s;
-            animation-duration: 7s;
-        }
-
-        .floating-element:nth-child(4) {
-            width: 100px;
-            height: 100px;
-            bottom: 8%;
-            right: 12%;
-            animation-delay: 3s;
-            animation-duration: 9s;
-        }
-
-        /* Loading State */
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        .loading i {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
         /* Search Bar */
         .search-container {
             max-width: 600px;
@@ -1363,61 +986,20 @@
             font-size: 1.2rem;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .container {
-                max-width: 1140px;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 992px) {
-            .container {
-                max-width: 960px;
-            }
-
             .about-content, .contact-content {
                 grid-template-columns: 1fr;
             }
 
             .footer-content {
                 grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .certificate-details {
-                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
             :root {
                 --header-height: 64px;
-            }
-
-            .container {
-                max-width: 720px;
-            }
-
-            section {
-                padding: 80px 0;
-            }
-
-            .navbar {
-                padding: 8px 0;
-            }
-
-            .logo .logo-text {
-                display: none;
-            }
-
-            .logo {
-                font-size: 1.1rem;
-                padding: 8px;
-                border-radius: 10px;
             }
 
             .nav-links {
@@ -1440,10 +1022,6 @@
                 right: 0;
             }
 
-            .nav-links li {
-                margin: 15px 0;
-            }
-
             .mobile-menu-btn {
                 display: block;
             }
@@ -1459,11 +1037,6 @@
                 gap: 20px;
             }
 
-            .stat {
-                width: 100%;
-                max-width: 260px;
-            }
-
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
@@ -1476,20 +1049,8 @@
                 padding: 30px;
             }
 
-            .certificate-modal-body {
-                padding: 20px;
-            }
-
             .certificate-details {
                 grid-template-columns: 1fr;
-            }
-
-            .certificate-image {
-                max-height: 300px;
-            }
-
-            .search-container {
-                margin: 0 auto 30px;
             }
         }
 
@@ -1498,21 +1059,8 @@
                 --header-height: 56px;
             }
 
-            .container {
-                padding: 0 20px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            h2 {
-                margin-bottom: 2.5rem;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
 
             .skills-grid {
@@ -1524,58 +1072,24 @@
                 padding: 20px;
             }
 
-            .hero-btns {
-                justify-content: center;
-            }
-
             .profile-card {
                 height: 350px;
-            }
-
-            .certificate-modal-content {
-                margin: 10px;
             }
 
             .certificate-image {
                 max-height: 250px;
             }
         }
-
-        @media (max-width: 400px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .certifications-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-stats {
-                gap: 15px;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Floating Elements -->
-    <div class="floating-elements" aria-hidden="true">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-    </div>
-
     <!-- Header & Navigation -->
     <header id="header">
         <div class="container">
-            <nav class="navbar" role="navigation" aria-label="Main navigation">
-                <a href="#home" class="logo" aria-label="KASRTENN - Home">
-                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <span class="logo-text">KASRTENN</span>
+            <nav class="navbar">
+                <a href="#home" class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>KASRTENN</span>
                 </a>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
@@ -1585,8 +1099,8 @@
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
             </nav>
         </div>
@@ -1595,30 +1109,30 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content fade-in-up">
+            <div class="hero-content">
                 <h1>Khoirul Amri Siregar</h1>
-                <p class="hero-subtitle typewriter">Bug Hunter & Security Researcher</p>
-                <p class="hero-description">I specialize in offensive security, penetration testing, and ethical hacking with a proven track record of identifying critical vulnerabilities in web applications, networks, and infrastructure for government institutions and enterprises.</p>
+                <p class="hero-subtitle">Bug Hunter & Security Researcher Indonesia</p>
+                <p class="hero-description">Saya spesialis offensive security, penetration testing, dan ethical hacking dengan rekam jejak terbukti mengidentifikasi kerentanan kritis dalam aplikasi web, jaringan, dan infrastruktur untuk institusi pemerintah dan perusahaan di Indonesia.</p>
                 <div class="hero-btns">
-                    <a href="#portfolio" class="btn ripple">
+                    <a href="#portfolio" class="btn">
                         <i class="fas fa-briefcase"></i>
                         View My Work
                     </a>
-                    <a href="#contact" class="btn btn-outline ripple">
+                    <a href="#contact" class="btn btn-outline">
                         <i class="fas fa-paper-plane"></i>
                         Get In Touch
                     </a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat fade-in-up delay-1">
+                    <div class="stat">
                         <span class="stat-number">50+</span>
                         <span class="stat-label">Vulnerabilities Found</span>
                     </div>
-                    <div class="stat fade-in-up delay-2">
+                    <div class="stat">
                         <span class="stat-number">1+</span>
                         <span class="stat-label">Hall of Fame Entries</span>
                     </div>
-                    <div class="stat fade-in-up delay-3">
+                    <div class="stat">
                         <span class="stat-number">1+</span>
                         <span class="stat-label">Years Experience</span>
                     </div>
@@ -1633,24 +1147,23 @@
             <h2>About Me</h2>
             <p class="section-subtitle">A dedicated Bug Hunter with experience in penetration testing and ethical hacking</p>
             <div class="about-content">
-                <div class="about-text fade-in-left">
+                <div class="about-text">
                     <p>My journey in cybersecurity began in high school when I discovered my first vulnerability in a school website. This experience ignited a passion that has driven my career ever since.</p>
                     <p>Today, I focus on offensive security, bug bounty hunting, penetration testing, and developing custom exploitation tools using Python and Bash. My work has been recognized by numerous government agencies and private companies throughout Indonesia.</p>
                     <p>When I'm not conducting security assessments, I contribute to the cybersecurity community through research, developing custom security tools, and sharing knowledge with aspiring security professionals.</p>
                     <div class="hero-btns">
-                        <a href="#contact" class="btn ripple">
+                        <a href="#contact" class="btn">
                             <i class="fas fa-envelope"></i>
                             Hire Me
                         </a>
-                        <a href="#" class="btn btn-outline ripple">
+                        <a href="#" class="btn btn-outline">
                             <i class="fas fa-download"></i>
                             Download CV
                         </a>
                     </div>
                 </div>
-                <div class="profile-card fade-in-right">
-                    <!-- Placeholder for profile image -->
-                    <div class="profile-placeholder float">
+                <div class="profile-card">
+                    <div class="profile-placeholder">
                         <i class="fas fa-user-secret"></i>
                         <p>Khoirul Amri Siregar<br><span style="font-size: 1rem; font-weight: normal;">Bug Hunter</span></p>
                     </div>
@@ -1665,7 +1178,7 @@
             <h2>Skills & Expertise</h2>
             <p class="section-subtitle">Comprehensive knowledge across various offensive security domains and tools</p>
             <div class="skills-grid">
-                <div class="skill-category fade-in-up">
+                <div class="skill-category">
                     <h3>Penetration Testing</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -1704,7 +1217,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-category fade-in-up delay-1">
+                <div class="skill-category">
                     <h3>Tools & Technologies</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -1759,7 +1272,7 @@
                 <button class="filter-btn" data-filter="tools">Security Tools</button>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item fade-in-up" data-category="web" data-portfolio="web1">
+                <div class="portfolio-item" data-category="web" data-portfolio="web1">
                     <div class="portfolio-img">
                         <i class="fas fa-lock"></i>
                     </div>
@@ -1773,7 +1286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item fade-in-up delay-1" data-category="network" data-portfolio="network1">
+                <div class="portfolio-item" data-category="network" data-portfolio="network1">
                     <div class="portfolio-img">
                         <i class="fas fa-network-wired"></i>
                     </div>
@@ -1787,7 +1300,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item fade-in-up delay-2" data-category="tools" data-portfolio="tools1">
+                <div class="portfolio-item" data-category="tools" data-portfolio="tools1">
                     <div class="portfolio-img">
                         <i class="fas fa-tools"></i>
                     </div>
@@ -1810,14 +1323,9 @@
         <div class="portfolio-modal-content">
             <div class="portfolio-modal-header">
                 <h3 id="portfolioModalTitle">Portfolio Details</h3>
-                <button class="close-portfolio-modal" aria-label="Close portfolio details">&times;</button>
+                <button class="close-portfolio-modal">&times;</button>
             </div>
             <div class="portfolio-modal-body">
-                <div class="portfolio-modal-image-placeholder">
-                    <div style="width:100%; height:300px; background:linear-gradient(135deg, #ede9fe, #ddd6fe); display:flex; align-items:center; justify-content:center; border-radius:var(--radius); margin-bottom:20px;">
-                        <i class="fas fa-lock" style="font-size: 5rem; color: var(--primary);"></i>
-                    </div>
-                </div>
                 <div class="portfolio-modal-details">
                     <div class="portfolio-detail-item">
                         <div class="portfolio-detail-label">Project Name</div>
@@ -1854,7 +1362,6 @@
             <h2>Certifications & Recognitions</h2>
             <p class="section-subtitle">Professional certifications and hall of fame acknowledgments</p>
             
-            <!-- Search Bar -->
             <div class="search-container">
                 <input type="text" id="certificateSearch" class="search-input" placeholder="Search certificates...">
                 <div class="search-icon">
@@ -1862,11 +1369,29 @@
                 </div>
             </div>
 
+            <!-- CERTIFICATES DIRECTLY IN HTML - NO SUPABASE -->
             <div class="certifications-grid" id="certificationsGrid">
-                <div class="loading">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading certificates...</p>
+                <!-- Certificate 1 -->
+                <div class="certification-item" data-cert="1">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="cert-name">Security Researcher Hall of Fame</h3>
+                    <p class="cert-org">Gunungkidul Regency</p>
+                    <div class="cert-date">2023</div>
                 </div>
+                
+                <!-- Certificate 2 -->
+                <div class="certification-item" data-cert="2">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="cert-name">Security Researcher Hall of Fame</h3>
+                    <p class="cert-org">D.I. Yogyakarta</p>
+                    <div class="cert-date">2023</div>
+                </div>
+                
+                <!-- Add more certificates here as needed -->
             </div>
         </div>
     </section>
@@ -1905,7 +1430,7 @@
             <p class="section-subtitle">Feel free to reach out for collaboration, consulting, or just to say hello</p>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item fade-in-up">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -1914,7 +1439,7 @@
                             <p>khoirulregar.212@gmail.com</p>
                         </div>
                     </div>
-                    <div class="contact-item fade-in-up delay-1">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fab fa-telegram"></i>
                         </div>
@@ -1923,7 +1448,7 @@
                             <p>@Uuuuhnice</p>
                         </div>
                     </div>
-                    <div class="contact-item fade-in-up delay-2">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fab fa-github"></i>
                         </div>
@@ -1932,7 +1457,7 @@
                             <p>github.com/khoirulamri-siregar</p>
                         </div>
                     </div>
-                    <div class="contact-item fade-in-up">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -1942,7 +1467,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form fade-in-up delay-1">
+                <div class="contact-form">
                     <!-- FORMSPREE INTEGRATION -->
                     <form id="contactForm" action="https://formspree.io/f/xdkzdpkk" method="POST">
                         <div class="form-group">
@@ -1957,7 +1482,7 @@
                         <div class="form-group">
                             <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn ripple">
+                        <button type="submit" class="btn">
                             <i class="fas fa-paper-plane"></i>
                             Send Message
                         </button>
@@ -1975,8 +1500,8 @@
                     <h3>KASRTENN</h3>
                     <p>Bug Hunter & Security Researcher specializing in penetration testing, vulnerability research, and ethical hacking with a proven track record of securing digital assets.</p>
                     <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://t.me/Uuuuhnice" class="social-icon"><i class="fab fa-telegram"></i></a>
+                        <a href="https://github.com/khoirulamri-siregar" class="social-icon"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     </div>
@@ -1988,6 +1513,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#skills">Skills</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1997,54 +1523,32 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 KASRTENN. All rights reserved. | All vulnerabilities reported responsibly.</p>
+                <p>&copy; 2025 Khoirul Amri Siregar. All rights reserved. | All vulnerabilities reported responsibly.</p>
             </div>
         </div>
     </footer>
 
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        // Supabase Configuration - GUNAKAN ANON KEY UNTUK CLIENT SIDE
-        const SUPABASE_URL = 'https://oskpcmehpbbqbqzzgvor.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9za3BjbWVocGJicWJxenpndm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MDAzNzEsImV4cCI6MjA3OTM3NjM3MX0.YI9gQ8qb4vaO_Gd5JQiN9m71DYzSbH0E-NXpm9jYB9k';
-        
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
 
         mobileMenuBtn.addEventListener('click', () => {
-            const expanded = navLinks.classList.toggle('active');
-            mobileMenuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-            mobileMenuBtn.innerHTML = expanded
-                ? '<i class="fas fa-times" aria-hidden="true"></i>'
-                : '<i class="fas fa-bars" aria-hidden="true"></i>';
-        });
-
-        // Close mobile nav when a link is clicked
-        navLinks.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-                }
-            });
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
         });
 
         // Header Scroll Effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 50);
         });
 
         // Skill Bars Animation
         const skillBars = document.querySelectorAll('.skill-progress');
-
         const animateSkillBars = () => {
             skillBars.forEach(bar => {
                 const width = bar.getAttribute('data-width');
@@ -2068,16 +1572,8 @@
                 portfolioItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, 10);
                     } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
+                        item.style.display = 'none';
                     }
                 });
             });
@@ -2094,7 +1590,6 @@
         const portfolioModalDesc = document.getElementById('portfolioModalDesc');
         const portfolioModalFindings = document.getElementById('portfolioModalFindings');
 
-        // Portfolio data
         const portfolioData = {
             'web1': {
                 title: 'E-Government Portal Penetration Test',
@@ -2102,17 +1597,17 @@
                 category: 'Web Security',
                 tech: 'Burp Suite, SQLMap, Custom Python Scripts',
                 date: '2025',
-                desc: 'Comprehensive penetration testing of a provincial government portal that handles sensitive citizen data. The assessment focused on identifying vulnerabilities that could lead to unauthorized access or data leakage.',
-                findings: 'Identified 3 critical vulnerabilities including SQL injection in user authentication, IDOR in document access controls, and stored XSS in feedback forms. All issues were responsibly disclosed and fixed within 30 days.'
+                desc: 'Comprehensive penetration testing of a provincial government portal that handles sensitive citizen data.',
+                findings: 'Identified 3 critical vulnerabilities including SQL injection, IDOR, and stored XSS.'
             },
             'network1': {
                 title: 'Corporate Network Red Team Exercise',
                 name: 'Financial Institution Network Assessment',
                 category: 'Network Security',
-                tech: 'Metasploit, Nmap, Cobalt Strike, Custom C2',
+                tech: 'Metasploit, Nmap, Cobalt Strike',
                 date: '2025',
-                desc: 'Full-scope red team engagement simulating advanced persistent threats against a major financial institution. The exercise tested detection and response capabilities across the entire network infrastructure.',
-                findings: 'Successfully gained domain administrator privileges within 48 hours through a combination of phishing, privilege escalation, and lateral movement. Identified 12 security gaps in network segmentation and monitoring.'
+                desc: 'Full-scope red team engagement simulating advanced persistent threats.',
+                findings: 'Successfully gained domain administrator privileges within 48 hours.'
             },
             'tools1': {
                 title: 'Bug Bunter Tools Development',
@@ -2120,12 +1615,11 @@
                 category: 'Security Tools',
                 tech: 'Python, Bash, API Integration',
                 date: '2025',
-                desc: 'Development of custom security tools for bug bounty hunting and penetration testing, including automation scripts and reconnaissance tools.',
-                findings: 'Created multiple tools including a subdomain enumeration script, a vulnerability scanner for common web vulnerabilities, and an automation framework for repetitive testing tasks.'
+                desc: 'Development of custom security tools for bug bounty hunting and penetration testing.',
+                findings: 'Created multiple tools including subdomain enumeration and vulnerability scanners.'
             }
         };
 
-        // Add click event to portfolio items
         document.querySelectorAll('.portfolio-item').forEach(item => {
             item.addEventListener('click', () => {
                 const portfolioId = item.getAttribute('data-portfolio');
@@ -2146,13 +1640,11 @@
             });
         });
 
-        // Close portfolio modal
         closePortfolioModal.addEventListener('click', () => {
             portfolioModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
 
-        // Close portfolio modal when clicking outside
         portfolioModal.addEventListener('click', (e) => {
             if (e.target === portfolioModal) {
                 portfolioModal.classList.remove('active');
@@ -2160,72 +1652,23 @@
             }
         });
 
-        // Load Certificates
-        async function loadCertificates() {
-            const { data: certificates, error } = await supabase
-                .from('certificates')
-                .select('*')
-                .order('date_awarded', { ascending: false });
-
-            const grid = document.getElementById('certificationsGrid');
-
-            if (error) {
-                console.error('Error loading certificates:', error);
-                grid.innerHTML = `
-                    <div class="loading">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>Error loading certificates. Please try again later.</p>
-                    </div>
-                `;
-                return;
+        // Certificate Data (NO SUPABASE)
+        const certificateData = {
+            '1': {
+                name: 'Security Researcher Hall of Fame',
+                org: 'Gunungkidul Regency',
+                date: '2023',
+                desc: 'Acknowledgment for responsible disclosure of security vulnerabilities in Gunungkidul Regency systems.',
+                image: 'images/GunungKidulKab.png'
+            },
+            '2': {
+                name: 'Security Researcher Hall of Fame',
+                org: 'D.I. Yogyakarta',
+                date: '2023',
+                desc: 'Recognition for identifying and reporting critical security issues in Yogyakarta government infrastructure.',
+                image: 'images/JogjaProv.jpg'
             }
-
-            displayCertificates(certificates);
-        }
-
-        // Display certificates
-        function displayCertificates(certificates) {
-            const grid = document.getElementById('certificationsGrid');
-            grid.innerHTML = '';
-
-            if (certificates && certificates.length > 0) {
-                certificates.forEach((cert, index) => {
-                    const certElement = document.createElement('div');
-                    certElement.className = `certification-item fade-in-up ${index > 5 ? 'delay-1' : ''}`;
-                    certElement.innerHTML = `
-                        <div class="cert-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3 class="cert-name">${cert.title}</h3>
-                        <p class="cert-org">${cert.organization}</p>
-                        <div class="cert-date">${new Date(cert.date_awarded).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
-                    `;
-                    certElement.addEventListener('click', () => openCertificateModal(cert));
-                    grid.appendChild(certElement);
-                });
-            } else {
-                grid.innerHTML = `
-                    <div class="loading">
-                        <i class="fas fa-inbox"></i>
-                        <p>No certificates found.</p>
-                    </div>
-                `;
-            }
-        }
-
-        // Search functionality
-        const searchInput = document.getElementById('certificateSearch');
-        let allCertificates = [];
-
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredCertificates = allCertificates.filter(cert => 
-                cert.title.toLowerCase().includes(searchTerm) ||
-                cert.organization.toLowerCase().includes(searchTerm) ||
-                (cert.description && cert.description.toLowerCase().includes(searchTerm))
-            );
-            displayCertificates(filteredCertificates);
-        });
+        };
 
         // Certificate Modal
         const certificateModal = document.getElementById('certificateModal');
@@ -2235,29 +1678,30 @@
         const modalCertDate = document.getElementById('modalCertDate');
         const modalCertDesc = document.getElementById('modalCertDesc');
 
-        function openCertificateModal(certificate) {
-            modalCertName.textContent = certificate.title;
-            modalCertOrg.textContent = certificate.organization;
-            modalCertDate.textContent = new Date(certificate.date_awarded).toLocaleDateString('id-ID', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            });
-            modalCertDesc.textContent = certificate.description || 'No description available.';
-            
-            if (certificate.image_url) {
-                modalCertImage.src = certificate.image_url;
-                modalCertImage.style.display = 'block';
-                modalCertImage.alt = `Certificate: ${certificate.title}`;
-            } else {
-                modalCertImage.style.display = 'none';
-            }
-            
-            certificateModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        document.querySelectorAll('.certification-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const certId = item.getAttribute('data-cert');
+                const cert = certificateData[certId];
 
-        // Close certificate modal
+                if (cert) {
+                    modalCertName.textContent = cert.name;
+                    modalCertOrg.textContent = cert.org;
+                    modalCertDate.textContent = cert.date;
+                    modalCertDesc.textContent = cert.desc;
+                    
+                    if (cert.image) {
+                        modalCertImage.src = cert.image;
+                        modalCertImage.style.display = 'block';
+                    } else {
+                        modalCertImage.style.display = 'none';
+                    }
+                    
+                    certificateModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
         document.querySelector('.close-certificate-modal').addEventListener('click', () => {
             certificateModal.classList.remove('active');
             document.body.style.overflow = 'auto';
@@ -2270,149 +1714,95 @@
             }
         });
 
-        // Form submission dengan Formspree
+        // Certificate Search
+        const searchInput = document.getElementById('certificateSearch');
+        const certItems = document.querySelectorAll('.certification-item');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            certItems.forEach(item => {
+                const certId = item.getAttribute('data-cert');
+                const cert = certificateData[certId];
+                
+                if (cert) {
+                    const matches = cert.name.toLowerCase().includes(searchTerm) ||
+                                   cert.org.toLowerCase().includes(searchTerm) ||
+                                   cert.desc.toLowerCase().includes(searchTerm);
+                    
+                    item.style.display = matches ? 'block' : 'none';
+                }
+            });
+        });
+
+        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
 
-            // Tampilkan loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
             try {
                 const formData = new FormData(this);
-
-                // Kirim ke Formspree
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
-                    // Success message
-                    showNotification('Message sent successfully! I will get back to you soon.', 'success');
+                    alert('Message sent successfully! I will get back to you soon.');
                     this.reset();
                 } else {
                     throw new Error('Failed to send message');
                 }
             } catch (error) {
-                // Error message
-                showNotification('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
+                alert('Sorry, there was an error sending your message. Please try again or contact me directly.');
             } finally {
-                // Reset button state
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }
         });
 
-        // Fungsi untuk menampilkan notifikasi
-        function showNotification(message, type) {
-            const existingNotification = document.querySelector('.form-notification');
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-
-            const notification = document.createElement('div');
-            notification.className = `form-notification ${type}`;
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" aria-hidden="true"></i>
-                    <span>${message}</span>
-                </div>
-            `;
-
-            const form = document.getElementById('contactForm');
-            form.appendChild(notification);
-
-            setTimeout(() => {
-                notification.remove();
-            }, 5000);
-        }
-
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Initialize animations when page loads
-        window.addEventListener('load', () => {
-            animateSkillBars();
-            
-            // Load certificates and store them for search
-            supabase
-                .from('certificates')
-                .select('*')
-                .order('date_awarded', { ascending: false })
-                .then(({ data: certificates, error }) => {
-                    if (!error) {
-                        allCertificates = certificates || [];
-                        displayCertificates(allCertificates);
-                    }
-                });
-
-            document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
-                el.style.opacity = '0';
-                if (el.classList.contains('fade-in-up')) {
-                    el.style.transform = 'translateY(30px)';
-                } else if (el.classList.contains('fade-in-left')) {
-                    el.style.transform = 'translateX(-30px)';
-                } else if (el.classList.contains('fade-in-right')) {
-                    el.style.transform = 'translateX(30px)';
-                }
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
-
-        // Smooth scrolling for anchor links
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80) + 4,
+                        top: targetElement.offsetTop - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80),
                         behavior: 'smooth'
                     });
 
                     // Close mobile menu if open
-                    navLinks.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
                 }
             });
         });
 
-        // Escape key to close modals
+        // Initialize on load
+        window.addEventListener('load', () => {
+            animateSkillBars();
+            // Set current year in footer
+            document.querySelector('.footer-bottom p').innerHTML = `&copy; ${new Date().getFullYear()} Khoirul Amri Siregar. All rights reserved. | All vulnerabilities reported responsibly.`;
+        });
+
+        // Close modals with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                if (portfolioModal.classList.contains('active')) {
-                    portfolioModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-                if (certificateModal.classList.contains('active')) {
-                    certificateModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
+                portfolioModal.classList.remove('active');
+                certificateModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
     </script>
