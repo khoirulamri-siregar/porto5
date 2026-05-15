@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Console - KIDA Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --dark: #0f172a;
+            --dark-heavy: #020617;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --white: #ffffff;
+            --radius: 24px;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: var(--dark-heavy); 
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-blobs {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 0% 0%, #0f172a 0%, #020617 100%);
+        }
+        .blob {
+            position: absolute; width: 400px; height: 400px;
+            background: var(--primary); filter: blur(120px);
+            border-radius: 50%; opacity: 0.1; animation: move 15s infinite alternate;
+        }
+        @keyframes move { from { transform: translate(0, 0); } to { transform: translate(50px, 50px); } }
+
+        /* Login Screen */
+        .login-screen { 
+            width: 100%; max-width: 420px; padding: 24px;
+            animation: fadeIn 0.8s ease;
+        }
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 48px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .login-icon { 
+            width: 80px; height: 80px; background: var(--primary); 
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; margin: 0 auto 32px; color: white;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        h2 { font-weight: 800; margin-bottom: 12px; font-size: 1.75rem; }
+        p.subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px; }
+
+        .input-group { margin-bottom: 24px; text-align: left; }
+        .input-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .input-group input { 
+            width: 100%; padding: 14px 20px; background: rgba(255,255,255,0.05); 
+            border: 1px solid var(--glass-border); border-radius: 16px; color: white;
+            font-family: inherit; transition: 0.3s;
+        }
+        .input-group input:focus { border-color: var(--primary); outline: none; background: rgba(255,255,255,0.1); }
+        
+        .btn { 
+            width: 100%; padding: 16px; border-radius: 16px; border: none; font-weight: 700; 
+            cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+            font-size: 1rem;
+        }
+        .btn-primary { background: var(--primary); color: var(--white); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* Dashboard */
+        .dashboard { display: none; width: 100%; max-width: 1200px; padding: 40px 24px; align-self: flex-start; }
+        .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        
+        .grid { display: grid; grid-template-columns: 380px 1fr; gap: 32px; }
+        .card { background: var(--glass); backdrop-filter: blur(20px); padding: 40px; border-radius: var(--radius); border: 1px solid var(--glass-border); }
+        .card h3 { margin-bottom: 32px; font-size: 1.25rem; display: flex; align-items: center; gap: 12px; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 20px; border-bottom: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        td { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
+        
+        .thumb { width: 50px; height: 50px; border-radius: 12px; object-fit: cover; background: var(--glass-heavy); border: 1px solid var(--glass-border); }
+        .actions { display: flex; gap: 10px; }
+        .action-btn { width: 36px; height: 36px; border-radius: 10px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .btn-edit { background: rgba(99, 102, 241, 0.1); color: var(--primary); }
+        .btn-edit:hover { background: var(--primary); color: white; }
+        .btn-delete { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .btn-delete:hover { background: var(--danger); color: white; }
+
+        @media (max-width: 992px) { 
+            .grid { grid-template-columns: 1fr; }
+            body { align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blobs"><div class="blob"></div></div>
+
+    <!-- Login -->
+    <div class="login-screen" id="loginScreen">
+        <div class="glass-card">
+            <div class="login-icon"><i class="fas fa-shield-alt"></i></div>
+            <h2>Admin Access</h2>
+            <p class="subtitle">Silakan masukkan kode akses untuk mengelola portofolio.</p>
+            <div class="input-group">
+                <label>Access Code</label>
+                <input type="password" id="pass" placeholder="••••••••" onkeypress="if(event.key==='Enter') login()">
+            </div>
+            <button class="btn btn-primary" onclick="login()">Authenticate <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Dash -->
+    <div class="dashboard" id="dash">
+        <div class="dash-header">
+            <h1 style="font-weight: 800; font-size: 2rem;">Command Center</h1>
+            <div style="display: flex; gap: 16px;">
+                <a href="index.html" class="btn btn-primary" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); width: auto;">Live Site</a>
+                <button class="btn btn-primary" style="background: var(--danger); width: auto;" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3 id="fTitle"><i class="fas fa-plus-circle"></i> New Certificate</h3>
+                <form id="certForm">
+                    <input type="hidden" id="editId">
+                    <div class="input-group"><label>Cert Name</label><input type="text" id="name" required></div>
+                    <div class="input-group"><label>Organization</label><input type="text" id="org" required></div>
+                    <div class="input-group"><label>Image Path</label><input type="text" id="img" placeholder="images/example.jpg" required></div>
+                    <div class="input-group">
+                        <label>Description</label>
+                        <textarea id="desc" rows="4" style="width: 100%; padding: 14px 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 16px; color: white; font-family: inherit; resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="sBtn">Save Changes</button>
+                    <button type="button" class="btn" id="cBtn" style="display: none; margin-top: 12px; background: transparent; color: var(--text-muted);" onclick="reset()">Cancel</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-list"></i> Certificate Registry</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead><tr><th>Preview</th><th>Name</th><th>Org</th><th>Actions</th></tr></thead>
+                        <tbody id="tBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const KEY = 'kasrtenn_certificates';
+        const PASS = 'kasrtenn123'; // Ini bisa diganti sendiri oleh user
+
+        function login() {
+            if(document.getElementById('pass').value === PASS) {
+                localStorage.setItem('kida_auth', 'true');
+                show();
+            } else alert('Access Denied: Invalid Code');
+        }
+        function logout() { localStorage.removeItem('kida_auth'); location.reload(); }
+        function show() { 
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dash').style.display = 'block';
+            document.body.style.alignItems = 'flex-start';
+            render();
+        }
+        if(localStorage.getItem('kida_auth')) show();
+
+        const get = () => JSON.parse(localStorage.getItem(KEY) || '[]');
+        const set = (d) => localStorage.setItem(KEY, JSON.stringify(d));
+
+        function render() {
+            const d = get();
+            document.getElementById('tBody').innerHTML = d.map(c => `
+                <tr>
+                    <td><img src="${c.image}" class="thumb" onerror="this.src='https://via.placeholder.com/50'"></td>
+                    <td><div style="font-weight: 700;">${c.name}</div></td>
+                    <td><span style="color: var(--text-muted);">${c.org}</span></td>
+                    <td>
+                        <div class="actions">
+                            <button class="action-btn btn-edit" onclick="edit('${c.id}')"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn btn-delete" onclick="del('${c.id}')"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('') || '<tr><td colspan="4" style="text-align:center; padding: 60px; color: var(--text-muted);">No entries found.</td></tr>';
+        }
+
+        document.getElementById('certForm').onsubmit = (e) => {
+            e.preventDefault();
+            const id = document.getElementById('editId').value;
+            const d = get();
+            const entry = {
+                id: id || Date.now().toString(),
+                name: document.getElementById('name').value,
+                org: document.getElementById('org').value,
+                image: document.getElementById('img').value,
+                desc: document.getElementById('desc').value
+            };
+            if(id) {
+                const idx = d.findIndex(c => c.id === id);
+                if(idx !== -1) d[idx] = entry;
+            } else {
+                d.push(entry);
+            }
+            set(d); reset(); render();
+        };
+
+        window.edit = (id) => {
+            const c = get().find(x => x.id === id);
+            if(!c) return;
+            document.getElementById('editId').value = c.id;
+            document.getElementById('name').value = c.name;
+            document.getElementById('org').value = c.org;
+            document.getElementById('img').value = c.image;
+            document.getElementById('desc').value = c.desc;
+            document.getElementById('fTitle').innerHTML = '<i class="fas fa-edit"></i> Edit Certificate';
+            document.getElementById('sBtn').textContent = 'Update Entry';
+            document.getElementById('cBtn').style.display = 'block';
+        };
+
+        window.del = (id) => { if(confirm('Are you sure you want to remove this entry?')) { set(get().filter(x => x.id !== id)); render(); } };
+        function reset() {
+            document.getElementById('certForm').reset();
+            document.getElementById('editId').value = '';
+            document.getElementById('fTitle').innerHTML = '<i class="fas fa-plus-circle"></i> New Certificate';
+            document.getElementById('sBtn').textContent = 'Save Changes';
+            document.getElementById('cBtn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
