@@ -3,513 +3,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#070303">
 
     <!-- ==================== SEO OPTIMIZATION ==================== -->
-    <title>Khoirul Amri Siregar - Junior Security Researcher</title>
-    <meta name="description" content="Official portfolio of Khoirul Amri Siregar (KIDA), a Junior Security Researcher specializing in offensive security, penetration testing, and vulnerability research.">
-    <meta name="keywords" content="Khoirul Amri Siregar, Khoirul Amri, KIDA, Security Researcher, Cybersecurity Indonesia, Bug Hunter, Bug Bounty, Penetration Tester">
+    <title>Khoirul Amri Siregar (KIDA) | Junior Security Researcher & Bug Hunter Indonesia</title>
+    <meta name="description" content="Khoirul Amri Siregar (KIDA) — Junior Security Researcher Indonesia. Spesialis web penetration testing, vulnerability research & bug bounty. 30+ temuan, 11 Hall of Fame.">
+    <meta name="keywords" content="Khoirul Amri Siregar, KIDA, Security Researcher Indonesia, Cybersecurity Indonesia, Bug Hunter, Bug Bounty, Penetration Tester, Vulnerability Research, Red Team, Keamanan Siber">
     <meta name="author" content="Khoirul Amri Siregar">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="canonical" href="https://khoirulamrisiregar.vercel.app/">
+    <!-- TODO: buat robots.txt & sitemap.xml di root deploy (contoh ada di bawah) -->
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://khoirulamrisiregar.vercel.app/">
-    <meta property="og:title" content="Khoirul Amri Siregar - Security Researcher">
-    <meta property="og:description" content="Junior Security Researcher fokus pada offensive security dan vulnerability research.">
-    <meta property="og:image" content="https://khoirulamrisiregar.vercel.app/images/profile.jpg">
+    <meta property="og:title" content="Khoirul Amri Siregar (KIDA) — Junior Security Researcher">
+    <meta property="og:description" content="Offensive security, penetration testing & vulnerability research. 30+ kerentanan dilaporkan, 11 Hall of Fame.">
+    <meta property="og:image" content="https://khoirulamrisiregar.vercel.app/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="KIDA // Security Research Unit">
 
-    <!-- Structured Data (JSON-LD) for AI & Search Engines -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Khoirul Amri Siregar (KIDA) — Junior Security Researcher">
+    <meta name="twitter:description" content="Offensive security, web pentest & vulnerability research. Red team operational.">
+    <meta name="twitter:image" content="https://khoirulamrisiregar.vercel.app/images/og-image.jpg">
+
+    <!-- Favicon (inline SVG — crosshair hexagon) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 56 18v28L32 60 8 46V18z' fill='%23ff2b2b'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23070303'/%3E%3Cpath d='M32 12v12M32 40v12M14 32h12M38 32h12' stroke='%23070303' stroke-width='4'/%3E%3C/svg%3E">
+
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://khoirulamrisiregar.vercel.app/#person",
       "name": "Khoirul Amri Siregar",
-      "alternateName": "KIDA",
+      "alternateName": ["KIDA", "Khoirul Amri"],
       "url": "https://khoirulamrisiregar.vercel.app/",
       "image": "https://khoirulamrisiregar.vercel.app/images/profile.jpg",
       "jobTitle": "Junior Security Researcher",
-      "description": "Khoirul Amri Siregar (KIDA) adalah seorang Junior Security Researcher yang berfokus pada identifikasi kerentanan dan pengamanan infrastruktur digital."
+      "description": "Junior Security Researcher yang berfokus pada identifikasi kerentanan dan pengamanan infrastruktur digital.",
+      "email": "mailto:khoirulregar.212@gmail.com",
+      "nationality": { "@type": "Country", "name": "Indonesia" },
+      "sameAs": [
+        "https://github.com/khoirulamri-siregar",
+        "https://linkedin.com/in/khoirulamrisiregar",
+        "https://t.me/Uuuuhnice"
+      ],
+      "knowsAbout": ["Web Application Security", "Penetration Testing", "Vulnerability Assessment", "Bug Bounty", "Offensive Security", "Linux Security", "Python"],
+      "award": [
+        "Hall of Fame — Pemerintah Kab. Bantul", "Security Recognition — BMKG Indonesia",
+        "Hall of Fame — Gunungkidul Regency", "Hall of Fame — Pemprov DKI Jakarta",
+        "Hall of Fame — Pemkot Yogyakarta", "Hall of Fame — D.I. Yogyakarta",
+        "Hall of Fame — Pemkab Jombang", "Acknowledgment — Kemenag RI",
+        "Security Contributor — KPI Pusat", "Hall of Fame — Pemprov Sulawesi Tengah",
+        "Acknowledgment — UNESCO"
+      ]
     }
     </script>
 
     <!-- ==================== STYLES & FONTS ==================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
-            --primary: #ff3b3b;
-            --primary-glow: rgba(255, 59, 59, 0.4);
-            --secondary: #8b0000;
-            --dark: #050202;
-            --glass: rgba(30, 10, 10, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --text: #fff1f1;
-            --text-muted: #ffa3a3;
+            --red: #ff2b2b;
+            --red-deep: #8b0000;
+            --red-glow: rgba(255, 43, 43, 0.35);
+            --amber: #ffb300; /* hazard / warning */
+            --bg: #070303;
+            --bg-2: #0d0404;
+            --panel: rgba(22, 8, 8, 0.55);
+            --line: rgba(255, 43, 43, 0.3);
+            --line-soft: rgba(255, 255, 255, 0.09);
+            --text: #efe6e6;
+            --muted: #c99f9f;
             --white: #ffffff;
-            --radius: 32px;
-            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --mono: 'JetBrains Mono', monospace;
+            --display: 'Chakra Petch', sans-serif;
+            --body: 'Rajdhani', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
-        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 110px; }
         body {
-            background-color: var(--dark);
+            background-color: var(--bg);
             color: var(--text);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--body);
+            font-size: 1.05rem;
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
         }
+        body.locked { overflow: hidden; }
+        .mono { font-family: var(--mono); }
+        ::selection { background: var(--red); color: #000; }
+        ::-webkit-scrollbar { width: 9px; }
+        ::-webkit-scrollbar-track { background: #0a0303; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--red), var(--red-deep)); border-radius: 0; }
 
-        /* Iframe Compatibility */
-        body.is-iframe { cursor: auto !important; }
-        body.is-iframe * { cursor: auto !important; }
-        body.is-iframe #cursor, body.is-iframe #cursor-blur { display: none !important; }
-        body.is-iframe .bg-blobs { position: absolute; height: 100%; min-height: 100vh; }
-        body.is-iframe header { position: absolute; }
-        body.is-iframe header.scrolled { position: fixed; }
+        /* Skip link (aksesibilitas) */
+        .skip { position: fixed; top: -70px; left: 16px; z-index: 10001; background: var(--red); color: #000;
+                padding: 10px 20px; font-family: var(--mono); font-size: .75rem; text-decoration: none; transition: top .3s; }
+        .skip:focus { top: 16px; }
 
-        /* Custom Cursor */
-        #cursor {
-            width: 12px; height: 12px;
-            background: var(--white);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.2s ease-out;
+        /* ===== Custom Cursor: Targeting Reticle ===== */
+        #reticle {
+            position: fixed; top: -22px; left: -22px;
+            width: 44px; height: 44px;
+            pointer-events: none; z-index: 9999;
             display: none;
             will-change: transform;
         }
-        #cursor-blur {
-            width: 300px; height: 300px;
-            background: var(--primary-glow);
-            filter: blur(60px);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.12;
-            display: none;
-            will-change: transform;
+        #reticle .r-ring {
+            position: absolute; inset: 6px; border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.65);
+            animation: spin 6s linear infinite;
+            transition: border-color .25s, inset .25s;
         }
-        @media (hover: hover) {
-            #cursor, #cursor-blur { display: block; }
+        #reticle .r-dot { position: absolute; top: 50%; left: 50%; width: 4px; height: 4px;
+                          background: #fff; border-radius: 50%; transform: translate(-50%, -50%); }
+        #reticle .r-tick { position: absolute; background: rgba(255, 255, 255, 0.65); transition: background .25s; }
+        .r-tick.t1 { top: -2px; left: 50%; width: 1px; height: 8px; transform: translateX(-50%); }
+        .r-tick.t2 { bottom: -2px; left: 50%; width: 1px; height: 8px; transform: translateX(-50%); }
+        .r-tick.t3 { left: -2px; top: 50%; height: 1px; width: 8px; transform: translateY(-50%); }
+        .r-tick.t4 { right: -2px; top: 50%; height: 1px; width: 8px; transform: translateY(-50%); }
+        #reticle .r-br { position: absolute; width: 10px; height: 10px; border: 2px solid var(--red);
+                         opacity: 0; transition: opacity .2s, transform .2s; }
+        .r-br.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; transform: translate(-6px, -6px); }
+        .r-br.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; transform: translate(6px, -6px); }
+        .r-br.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; transform: translate(-6px, 6px); }
+        .r-br.br { bottom: 0; right: 0; border-left: 0; border-top: 0; transform: translate(6px, 6px); }
+        #reticle.lock .r-ring { border-color: var(--red); inset: 0; }
+        #reticle.lock .r-tick { background: var(--red); }
+        #reticle.lock .r-dot { background: var(--red); }
+        #reticle.lock .r-br { opacity: 1; transform: translate(0, 0); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (hover: hover) and (pointer: fine) {
+            * { cursor: none !important; }
+            #reticle { display: block; }
         }
 
-        /* Dynamic Island Navigation */
+        /* ===== Background: Hex Field, Grid, Blobs ===== */
+        .bg-blobs {
+            position: fixed; inset: 0; z-index: -1; overflow: hidden;
+            background: #070303; transform: translateZ(0);
+        }
+        .bg-hex {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='300'%3E%3Cpath d='M130 60l65 37.5v75L130 210 65 172.5v-75z' fill='none' stroke='%23ff2b2b' stroke-opacity='.07'/%3E%3C/svg%3E");
+        }
+        .bg-grid {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255, 43, 43, .045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 43, 43, .045) 1px, transparent 1px);
+            background-size: 62px 62px;
+            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 72%);
+            mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 72%);
+        }
+        .bg-blobs::after { /* noise */
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: .05;
+        }
+        .blob { position: absolute; width: 700px; height: 700px; border-radius: 50%;
+                background: radial-gradient(circle, rgba(255, 43, 43, .14) 0%, transparent 70%);
+                will-change: transform; transition: transform .8s cubic-bezier(.23, 1, .32, 1); }
+        .blob-1 { top: -120px; left: -120px; }
+        .blob-2 { top: 18%; right: -220px; background: radial-gradient(circle, rgba(255, 31, 31, .1) 0%, transparent 70%); }
+        .blob-3 { bottom: -120px; left: 8%; background: radial-gradient(circle, rgba(220, 38, 38, .1) 0%, transparent 70%); }
+
+        /* ===== CRT Scanlines & Sweep ===== */
+        #scanlines {
+            position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: .22;
+            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .25) 0 1px, transparent 1px 3px);
+        }
+        #sweep {
+            position: fixed; left: 0; width: 100%; height: 130px; top: -15%;
+            z-index: 9989; pointer-events: none;
+            background: linear-gradient(180deg, transparent, rgba(255, 43, 43, .05), transparent);
+            animation: sweep 9s linear infinite;
+        }
+        @keyframes sweep { from { top: -15%; } to { top: 110%; } }
+
+        /* ===== HUD Navigation (Dynamic Island, mecha edition) ===== */
         .island-wrapper {
-            position: fixed;
-            top: 20px;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 2000;
-            pointer-events: none;
+            position: fixed; top: 20px; left: 0; width: 100%;
+            display: flex; justify-content: center; z-index: 2200; pointer-events: none;
         }
         .island {
-            width: 130px;
-            height: 38px;
-            background: #000;
-            border-radius: 100px;
-            pointer-events: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-            position: relative;
+            width: 132px; height: 40px; background: #0b0404;
+            clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+            pointer-events: auto; display: flex; align-items: center; justify-content: center;
+            transition: all .7s cubic-bezier(.19, 1, .22, 1);
+            border: 1px solid var(--line-soft); position: relative; overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .8);
         }
         .island:hover, .island.active {
-            width: 500px;
-            height: 60px;
-            border-radius: 20px;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            border-color: var(--primary);
-        }
-        @media (max-width: 768px) {
-            .island:hover, .island.active {
-                width: 90%;
-                height: 55px;
-            }
-            .island-nav { gap: 15px !important; }
-            .island-nav a { font-size: 0.7rem !important; }
+            width: 540px; height: 62px;
+            background: rgba(10, 3, 3, .88); backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-color: var(--red);
+            box-shadow: 0 0 40px var(--red-glow), 0 12px 30px rgba(0, 0, 0, .8);
         }
         .island-main {
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--red); font-family: var(--mono); font-size: .72rem; font-weight: 700;
+            letter-spacing: 3px; transition: .3s; display: flex; align-items: center; gap: 10px;
         }
-        .island:hover .island-main, .island.active .island-main { opacity: 0; transform: translateY(-20px); pointer-events: none; }
-        
+        .island:hover .island-main, .island.active .island-main { opacity: 0; transform: translateY(-18px); }
         .island-content {
-            position: absolute;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            display: flex;
-            align-items: center;
-            width: 100%;
-            justify-content: center;
-            pointer-events: none;
+            position: absolute; inset: 0; opacity: 0; transform: translateY(18px);
+            transition: all .5s cubic-bezier(.19, 1, .22, 1);
+            display: flex; align-items: center; justify-content: center; pointer-events: none;
         }
-        .island:hover .island-content, .island.active .island-content { opacity: 1; transform: translateY(0); pointer-events: auto; }
-        
-        .island-nav {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
+        .island:hover .island-content, .island.active .island-content { opacity: 1; transform: none; pointer-events: auto; }
+        .island-nav { list-style: none; display: flex; gap: 28px; }
         .island-nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            color: var(--muted); text-decoration: none; font-family: var(--mono);
+            font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: .3s;
         }
-        .island-nav a:hover { color: var(--primary); }
+        .island-nav a::before { content: "// "; color: var(--red); opacity: 0; transition: .3s; }
+        .island-nav a:hover { color: var(--red); }
+        .island-nav a:hover::before { opacity: 1; }
+        @media (max-width: 768px) {
+            .island:hover, .island.active { width: 92%; height: 56px; }
+            .island-nav { gap: 16px; }
+            .island-nav a { font-size: .62rem; letter-spacing: 1px; }
+            .island-nav a::before { content: ""; }
+        }
 
-        /* Animated & Parallax Background */
-        .bg-blobs {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            background: #0a0505;
-            transform: translateZ(0);
-        }
-        .bg-blobs::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.05;
-            pointer-events: none;
-        }
-        .blob {
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(255, 59, 59, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            will-change: transform;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .blob-1 { top: -100px; left: -100px; }
-        .blob-2 { top: 20%; right: -200px; background: radial-gradient(circle, rgba(255, 31, 31, 0.12) 0%, transparent 70%); }
-        .blob-3 { bottom: -100px; left: 10%; background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%); }
-
+        /* ===== Layout & Sections ===== */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-        section { padding: 120px 0; position: relative; }
+        section { padding: 110px 0; position: relative; }
+        #certifications, #contact { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 
-        h1, h2, h3 { color: var(--white); font-weight: 800; line-height: 1.1; }
-        h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 2rem; text-align: center; letter-spacing: -1.5px; }
+        h1, h2, h3 { color: var(--white); font-family: var(--display); line-height: 1.1; }
+        h2 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); margin: 14px 0 0; text-transform: uppercase;
+             letter-spacing: 1px; text-align: center; }
+
+        .sec-head { text-align: center; margin-bottom: 70px; }
+        .sec-tag { display: inline-block; font-family: var(--mono); font-size: .68rem; letter-spacing: 3px;
+                   color: var(--amber); border: 1px solid rgba(255, 179, 0, .25); padding: 5px 14px;
+                   background: rgba(255, 179, 0, .05); }
+        .sec-line { display: flex; align-items: center; justify-content: center; gap: 0; margin-top: 26px; }
+        .sec-line::before, .sec-line::after { content: ""; height: 1px; width: min(140px, 20vw);
+                   background: linear-gradient(90deg, transparent, var(--line)); }
+        .sec-line::after { background: linear-gradient(90deg, var(--line), transparent); }
+        .hazard { width: 90px; height: 6px; margin: 0 10px; opacity: .8;
+                  background: repeating-linear-gradient(-45deg, var(--amber) 0 9px, transparent 9px 18px); }
 
         .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            color: var(--primary);
-            border-radius: 100px;
-            font-weight: 700;
-            font-size: 0.65rem;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            backdrop-filter: blur(5px);
+            display: inline-block; padding: 8px 18px; font-family: var(--mono); font-size: .62rem;
+            letter-spacing: 3px; text-transform: uppercase; color: var(--red);
+            background: rgba(255, 43, 43, .06); border: 1px solid var(--line);
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            margin-bottom: 26px;
         }
 
-        /* 3D Liquid Glass Card */
-        .glass-card {
-            background: rgba(25, 10, 10, 0.3);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.1s ease-out, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+        /* ===== Panels (cut-corner glass) ===== */
+        .panel {
+            background: var(--panel); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--line-soft);
+            clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+            position: relative; overflow: hidden;
+            transition: border-color .4s, box-shadow .4s;
         }
-        .glass-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.05), transparent);
-            transform: translateX(-100%);
-            transition: 0.8s;
-            pointer-events: none;
-        }
-        .glass-card:hover::before { transform: translateX(100%); }
-        .glass-card:hover {
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
-            border-color: rgba(255, 59, 59, 0.4);
+        .panel:hover { border-color: var(--line); box-shadow: 0 0 60px rgba(255, 43, 43, .1); }
+        .panel::before { /* top hazard accent */
+            content: ""; position: absolute; top: 0; left: 0; width: 130px; height: 4px;
+            background: repeating-linear-gradient(-45deg, var(--red) 0 8px, transparent 8px 16px);
         }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 80px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 1100px; height: 64px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            border-radius: 20px;
-            transition: var(--transition);
-        }
-        header.scrolled {
-            top: 20px;
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
+        /* ===== Reveal ===== */
+        .reveal { opacity: 0; filter: blur(10px); transform: translateY(28px);
+                  transition: opacity .9s cubic-bezier(.23, 1, .32, 1), filter .9s cubic-bezier(.23, 1, .32, 1), transform .9s cubic-bezier(.23, 1, .32, 1); }
+        .reveal.active { opacity: 1; filter: blur(0); transform: none; }
 
-        .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 24px; }
-        .logo { font-weight: 900; font-size: 1.25rem; color: var(--white); text-decoration: none; letter-spacing: -1px; }
-        .logo span { color: var(--primary); }
-
-        .nav-links { display: flex; gap: 24px; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; color: var(--text-muted); 
-            font-weight: 600; font-size: 0.8rem; transition: var(--transition);
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-
-        .mobile-toggle { display: none; color: var(--white); font-size: 1.2rem; cursor: pointer; }
-
-        /* Hero */
-        .hero { padding-top: 180px; padding-bottom: 80px; text-align: center; }
-        .hero h1 { 
-            font-size: clamp(3.2rem, 10vw, 6rem); 
-            margin-bottom: 24px; 
-            letter-spacing: -4px;
-            background: linear-gradient(to bottom, #fff 50%, #64748b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; }
-
+        /* ===== Buttons ===== */
         .btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 36px; border-radius: 18px; font-weight: 800;
-            text-decoration: none; transition: var(--transition); border: none;
-            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 15px 34px; font-family: var(--mono); font-weight: 700; font-size: .78rem;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: none;
+            clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+            transition: transform .3s, box-shadow .3s, background .3s;
         }
-        .btn-primary { 
-            background: var(--primary); color: var(--dark);
-            box-shadow: 0 10px 25px -5px var(--primary-glow);
+        .btn::after { content: "▸"; font-size: .9em; }
+        .btn-primary { background: linear-gradient(135deg, var(--red), var(--red-deep)); color: #0a0303;
+                       box-shadow: 0 8px 24px -6px var(--red-glow); }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -6px var(--red-glow); }
+        .btn-outline { background: rgba(255, 255, 255, .03); border: 1px solid var(--line-soft); color: var(--white); }
+        .btn-outline:hover { border-color: var(--red); background: rgba(255, 43, 43, .08); transform: translateY(-4px); }
+
+        /* ===== Hero ===== */
+        .hero { padding-top: 170px; padding-bottom: 60px; text-align: center; }
+        .hud-frame { position: relative; padding: 44px 28px; }
+        .hud-c { position: absolute; width: 26px; height: 26px; border: 2px solid var(--red); opacity: .65; }
+        .hud-c.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+        .hud-c.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+        .hud-c.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+        .hud-c.br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+        .hud-coord { position: absolute; bottom: 4px; right: 40px; font-family: var(--mono);
+                     font-size: .58rem; letter-spacing: 2px; color: var(--amber); opacity: .55; }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 8vw, 5.2rem); margin: 10px 0 26px; letter-spacing: 1px;
+            text-transform: uppercase; font-weight: 700;
+            background: linear-gradient(180deg, #fff 35%, #ffc9c9 68%, var(--red));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -5px var(--primary-glow); }
-        .btn-outline { 
-            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); 
-            color: var(--white); backdrop-filter: blur(10px);
+        /* Glitch */
+        .glitch { position: relative; }
+        .glitch::before, .glitch::after {
+            content: attr(data-text); position: absolute; inset: 0; opacity: 0;
+            -webkit-text-fill-color: initial; background: none;
         }
-        .btn-outline:hover { background: rgba(255, 255, 255, 0.06); border-color: var(--primary); transform: translateY(-5px); }
+        .glitch::before { color: var(--red); z-index: -1; animation: glitch-a 7s infinite; }
+        .glitch::after { color: var(--amber); z-index: -2; animation: glitch-b 7s infinite; }
+        @keyframes glitch-a {
+            0%, 89%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+            90% { opacity: .85; clip-path: inset(12% 0 62% 0); transform: translate(-5px, -2px); }
+            92% { opacity: .85; clip-path: inset(62% 0 8% 0); transform: translate(5px, 2px); }
+            94% { opacity: 0; }
+        }
+        @keyframes glitch-b {
+            0%, 91%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+            92% { opacity: .7; clip-path: inset(38% 0 38% 0); transform: translate(4px, 1px); }
+            94% { opacity: .7; clip-path: inset(80% 0 4% 0); transform: translate(-4px, -1px); }
+            96% { opacity: 0; }
+        }
 
-        /* Stats */
-        .hero-stats { display: flex; justify-content: center; gap: 100px; margin-top: 80px; }
-        .stat-value { font-size: 3.5rem; font-weight: 900; color: var(--white); display: block; letter-spacing: -3px; }
-        .stat-label { color: var(--primary); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .type-line { font-family: var(--mono); color: var(--amber); font-size: .85rem; letter-spacing: 2px;
+                     margin-bottom: 22px; min-height: 1.4em; }
+        .type-line::after { content: "▮"; animation: blink 1s steps(1) infinite; color: var(--red); }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        /* Reveal Animations */
-        .reveal { opacity: 0; filter: blur(15px); transform: translateY(30px); transition: all 1s cubic-bezier(0.23, 1, 0.32, 1); }
-        .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
+        .hero p.hero-desc { font-size: 1.15rem; color: var(--muted); max-width: 680px; margin: 0 auto 46px; }
 
-        /* About */
+        /* Hero gauges (cockpit style) */
+        .gauge-row { display: flex; justify-content: center; gap: 70px; margin-top: 70px; flex-wrap: wrap; }
+        .gauge { position: relative; width: 152px; height: 152px; }
+        .gauge svg { width: 100%; height: 100%; }
+        .g-track { fill: none; stroke: rgba(255, 255, 255, .08); stroke-width: 5; }
+        .g-arc { fill: none; stroke: var(--red); stroke-width: 5;
+                 stroke-dasharray: 326.73; stroke-dashoffset: 326.73;
+                 transform: rotate(-90deg); transform-origin: 60px 60px;
+                 transition: stroke-dashoffset 1.5s cubic-bezier(.19, 1, .22, 1) .25s;
+                 filter: drop-shadow(0 0 6px var(--red-glow)); }
+        .g-read { position: absolute; inset: 0; display: flex; flex-direction: column;
+                  align-items: center; justify-content: center; }
+        .g-num { font-family: var(--display); font-weight: 700; font-size: 2.1rem; color: var(--white); line-height: 1; }
+        .g-lab { font-family: var(--mono); font-size: .56rem; letter-spacing: 2px; color: var(--amber);
+                 margin-top: 8px; text-transform: uppercase; text-align: center; }
+
+        /* ===== About: Pilot Dossier ===== */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .about-img-box { position: relative; }
-        .about-img-box img { 
-            width: 100%; border-radius: var(--radius); 
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-            transition: var(--transition);
+        .dossier-img { position: relative; }
+        .dossier-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+                           border: 1px solid var(--line-soft); filter: saturate(.85) contrast(1.06);
+                           transition: filter .5s; }
+        .dossier-img:hover img { filter: saturate(1) contrast(1.1); }
+        .service-record {
+            position: absolute; bottom: 26px; left: -26px; z-index: 5;
+            background: linear-gradient(135deg, var(--red), var(--red-deep)); color: #120404;
+            padding: 18px 28px; text-align: center;
+            clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+            box-shadow: 0 16px 40px var(--red-glow);
         }
-        .exp-badge {
-            position: absolute; bottom: 30px; left: -30px;
-            background: var(--primary); padding: 25px 35px; border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3); text-align: center;
-            color: var(--dark); z-index: 10;
+        .service-record b { display: block; font-family: var(--display); font-size: 2.2rem; font-weight: 700; line-height: 1; }
+        .service-record span { font-family: var(--mono); font-size: .6rem; font-weight: 700; letter-spacing: 2px; }
+        .about-content p { margin-bottom: 22px; color: var(--muted); font-size: 1.12rem; }
+        .about-content strong { color: var(--text); }
+
+        /* ===== Skills: Armament ===== */
+        .skills-container { padding: 70px; }
+        .skill-item { margin-bottom: 34px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 12px;
+                      font-family: var(--mono); font-weight: 700; font-size: .72rem; letter-spacing: 2px;
+                      color: var(--text); text-transform: uppercase; }
+        .skill-info span:last-child { color: var(--amber); }
+        .skill-bar { height: 12px; background: rgba(255, 255, 255, .04);
+                     border: 1px solid var(--line-soft); position: relative; }
+        .skill-progress { height: 100%; width: 0;
+                          background: repeating-linear-gradient(90deg, var(--red) 0 15px, rgba(255, 43, 43, .3) 15px 19px);
+                          box-shadow: 0 0 16px var(--red-glow);
+                          transition: width 1.8s cubic-bezier(.19, 1, .22, 1); }
+
+        /* ===== Certs: Mission Log ===== */
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+        .cert-card {
+            padding: 32px 26px; text-align: center; background: var(--panel);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--line-soft); position: relative; overflow: hidden;
+            clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+            transition: border-color .4s, box-shadow .4s;
         }
+        .cert-card::before { content: ""; position: absolute; top: 0; left: 0; width: 90px; height: 4px;
+            background: repeating-linear-gradient(-45deg, var(--amber) 0 7px, transparent 7px 14px); opacity: .7; }
+        .cert-card:hover, .cert-card:focus-visible { border-color: var(--line);
+            box-shadow: 0 0 45px rgba(255, 43, 43, .12); outline: none; }
+        .cc-head { display: flex; justify-content: space-between; align-items: center;
+                   font-family: var(--mono); font-size: .58rem; letter-spacing: 2px;
+                   color: var(--amber); opacity: .75; margin-bottom: 20px; }
+        .cc-dot { width: 7px; height: 7px; background: var(--red); box-shadow: 0 0 8px var(--red);
+                  animation: pulse 2.2s infinite; }
+        @keyframes pulse { 50% { opacity: .3; } }
+        .cert-card img { height: 62px; margin-bottom: 20px; object-fit: contain;
+                         filter: grayscale(.9) brightness(.75); transition: .5s; }
+        .cert-card:hover img { filter: grayscale(0) brightness(1.15); transform: scale(1.08); }
+        .cert-card h3 { font-size: 1.05rem; margin-bottom: 8px; letter-spacing: .5px; }
+        .cert-card .cc-org { font-family: var(--mono); color: var(--red); font-size: .68rem;
+                             font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        /* Skills */
-        .skills-container { padding: 80px; }
-        .skill-item { margin-bottom: 35px; }
-        .skill-info { display: flex; justify-content: space-between; margin-bottom: 12px; font-weight: 800; font-size: 0.85rem; color: var(--text); text-transform: uppercase; letter-spacing: 1.5px; }
-        .skill-bar { height: 10px; background: rgba(255,255,255,0.03); border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
-        .skill-progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); width: 0; transition: width 2s cubic-bezier(0.19, 1, 0.22, 1); box-shadow: 0 0 20px var(--primary-glow); }
-
-        /* Certs */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        .cert-card { padding: 50px 40px; text-align: center; }
-        .cert-card img { height: 70px; margin-bottom: 30px; filter: grayscale(1) brightness(0.8); transition: 0.5s; object-fit: contain; }
-        .cert-card:hover img { filter: grayscale(0) brightness(1.2); transform: scale(1.1) translateZ(30px); }
-        .cert-card h3 { font-size: 1.25rem; margin-bottom: 10px; transform: translateZ(20px); }
-        .cert-card p { font-size: 0.85rem; color: var(--primary); font-weight: 800; text-transform: uppercase; transform: translateZ(10px); }
-
-        /* Contact */
-        .contact-box { padding: 100px 40px; text-align: center; }
-        .social-row { display: flex; justify-content: center; gap: 24px; margin-top: 50px; }
-        .social-icon {
-            width: 70px; height: 70px; border-radius: 22px; 
-            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);
-            display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
-            color: var(--white); text-decoration: none; transition: var(--transition);
+        /* ===== Contact: Comms Uplink ===== */
+        .contact-box { padding: 90px 40px; text-align: center; }
+        .comms-row { display: flex; justify-content: center; gap: 22px; margin-top: 54px; flex-wrap: wrap; }
+        .comms-btn {
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            width: 122px; padding: 24px 12px; background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--line-soft); color: var(--text); text-decoration: none;
+            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+            transition: transform .3s, border-color .3s, background .3s, box-shadow .3s;
         }
-        .social-icon:hover { 
-            background: var(--primary); color: var(--dark);
-            transform: translateY(-12px) scale(1.1); 
-            box-shadow: 0 20px 40px var(--primary-glow);
-        }
+        .comms-btn i { font-size: 1.6rem; color: var(--red); transition: color .3s; }
+        .comms-lab { font-family: var(--mono); font-size: .58rem; letter-spacing: 2px;
+                     color: var(--muted); text-transform: uppercase; }
+        .comms-btn:hover { transform: translateY(-8px); border-color: var(--red);
+                           background: rgba(255, 43, 43, .08); box-shadow: 0 14px 34px var(--red-glow); }
+        .comms-btn:hover i { color: var(--white); }
 
-        /* Footer */
-        footer { padding: 80px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
+        /* ===== Footer ===== */
+        footer { padding: 70px 0; text-align: center; border-top: 1px solid var(--line-soft); }
+        footer .f-line { font-family: var(--mono); font-size: .75rem; color: var(--muted); letter-spacing: 1px; }
+        footer .f-sub { font-family: var(--mono); font-size: .6rem; opacity: .45; margin-top: 10px; letter-spacing: 1px; }
+        footer .f-line b { color: var(--red); }
 
-        /* Modal */
-        .modal {
-            position: fixed; inset: 0; background: rgba(2, 6, 23, 0.95);
-            backdrop-filter: blur(25px);
-            display: none; align-items: center; justify-content: center; z-index: 2000; padding: 24px;
-        }
+        /* ===== Status Line ===== */
+        #statusline { position: fixed; bottom: 14px; left: 16px; z-index: 2100; pointer-events: none;
+                      font-family: var(--mono); font-size: .6rem; letter-spacing: 2px;
+                      color: var(--amber); opacity: .55; }
+        #statusline .blink { animation: blink 1.1s steps(1) infinite; color: var(--red); }
+
+        /* ===== Modal ===== */
+        .modal { position: fixed; inset: 0; background: rgba(4, 1, 1, .93);
+                 backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+                 display: none; align-items: center; justify-content: center; z-index: 3000; padding: 24px; }
         .modal.active { display: flex; }
-        .modal-content { 
-            background: #0f172a; border-radius: 40px; max-width: 900px; width: 100%; 
-            position: relative; overflow: hidden; border: 1px solid var(--glass-border);
-            box-shadow: 0 60px 120px rgba(0,0,0,0.9);
-        }
-        .modal-body { padding: 60px; }
-        .close-modal { position: absolute; top: 30px; right: 30px; cursor: pointer; font-size: 2.5rem; color: var(--text-muted); transition: 0.3s; }
-        .close-modal:hover { color: var(--white); transform: rotate(90deg) scale(1.1); }
+        .modal-content { background: #120606; max-width: 880px; width: 100%; position: relative;
+                         border: 1px solid var(--line);
+                         clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px);
+                         box-shadow: 0 0 90px rgba(255, 43, 43, .15); }
+        .modal-head { display: flex; justify-content: space-between; align-items: center;
+                      padding: 16px 28px; border-bottom: 1px dashed var(--line);
+                      font-family: var(--mono); font-size: .62rem; letter-spacing: 3px; color: var(--amber); }
+        .close-modal { background: none; border: 1px solid var(--line-soft); color: var(--muted);
+                       font-family: var(--mono); font-size: .62rem; letter-spacing: 2px; padding: 6px 14px;
+                       transition: .3s; cursor: pointer; }
+        .close-modal:hover, .close-modal:focus-visible { color: var(--red); border-color: var(--red); outline: none; }
+        .modal-body { padding: 44px; }
+        .modal-body img { width: 100%; border: 1px solid var(--line-soft); margin-bottom: 26px; display: block; }
+        .modal-body h3 { font-size: 1.6rem; margin-bottom: 10px; text-transform: uppercase; }
+        #modalOrg { color: var(--red); font-weight: 700; margin-bottom: 18px; text-transform: uppercase;
+                    font-size: .72rem; letter-spacing: 2px; font-family: var(--mono); }
+        #modalDesc { color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
 
-        /* Responsive */
+        /* ===== Boot Sequence ===== -->
+        #boot { position: fixed; inset: 0; z-index: 10000; background: #050101;
+                display: none; align-items: center; justify-content: center; }
+        #boot.active { display: flex; }
+        #boot.done { opacity: 0; transition: opacity .6s; pointer-events: none; }
+        .boot-inner { width: min(560px, 88vw); border: 1px solid var(--line); background: #0a0303;
+                      padding: 38px 42px; position: relative;
+                      clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+                      box-shadow: 0 0 70px rgba(255, 43, 43, .12); }
+        .boot-head { color: var(--red); font-family: var(--mono); letter-spacing: 3px; font-size: .74rem;
+                     margin-bottom: 22px; border-bottom: 1px dashed var(--line); padding-bottom: 14px; }
+        .boot-lines p { color: var(--amber); font-family: var(--mono); font-size: .76rem;
+                        opacity: 0; transform: translateX(-10px); transition: .25s; margin: 7px 0; letter-spacing: 1px; }
+        .boot-lines p.on { opacity: 1; transform: none; }
+        .boot-bar { height: 4px; background: rgba(255, 255, 255, .06); margin-top: 26px; overflow: hidden; }
+        .boot-bar span { display: block; height: 100%; width: 0; background: var(--red);
+                         box-shadow: 0 0 12px var(--red); }
+        #boot.active .boot-bar span { animation: bootbar 1.9s linear forwards; }
+        @keyframes bootbar { to { width: 100%; } }
+        .boot-skip { margin-top: 16px; text-align: center; color: var(--muted);
+                     font-family: var(--mono); font-size: .56rem; letter-spacing: 3px;
+                     animation: blink 1.6s steps(1) infinite; }
+
+        /* ===== Responsive ===== */
         @media (max-width: 992px) {
             .grid-2 { grid-template-columns: 1fr; gap: 60px; text-align: center; }
-            .hero-stats { gap: 60px; }
-            .about-img-box { max-width: 500px; margin: 0 auto; }
-            .exp-badge { left: 50%; transform: translateX(-50%); bottom: -30px; }
+            .dossier-img { max-width: 460px; margin: 0 auto; }
+            .service-record { left: 50%; transform: translateX(-50%); bottom: -24px; }
+            .gauge-row { gap: 44px; }
         }
         @media (max-width: 768px) {
-            header { width: 95%; height: 60px; top: 12px; }
-            .nav-links { 
-                position: fixed; top: 80px; left: 2.5%; width: 95%; 
-                background: rgba(2, 6, 23, 0.98); backdrop-filter: blur(20px);
-                flex-direction: column; padding: 40px; border-radius: 24px;
-                border: 1px solid var(--glass-border); display: none;
-            }
-            .nav-links.active { display: flex; }
-            .mobile-toggle { display: block; }
-            .hero h1 { font-size: 3.5rem; letter-spacing: -2px; }
-            .hero-stats { gap: 40px; flex-wrap: wrap; }
-            .stat-value { font-size: 2.8rem; }
-            .skills-container { padding: 40px 24px; }
-            .modal-body { padding: 30px; }
+            section { padding: 84px 0; }
+            .hero { padding-top: 140px; }
+            .skills-container { padding: 44px 24px; }
+            .modal-body { padding: 26px; }
+            #statusline { display: none; }
+            .hud-coord { display: none; }
+            .comms-row { gap: 14px; }
+            .comms-btn { width: 100px; padding: 18px 8px; }
+        }
+        @media (hover: none) {
             * { cursor: auto !important; }
-            #cursor, #cursor-blur { display: none !important; }
+            #reticle { display: none !important; }
+        }
+
+        /* Iframe compatibility (preview tools) */
+        body.is-iframe .bg-blobs { position: absolute; height: 100%; min-height: 100vh; }
+        body.is-iframe #reticle, body.is-iframe #statusline, body.is-iframe #sweep { display: none !important; }
+        body.is-iframe * { cursor: auto !important; }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+            .reveal { opacity: 1; filter: none; transform: none; }
+            #sweep, #statusline .blink, .type-line::after { display: none; }
+            html { scroll-behavior: auto; }
         }
     </style>
+
+    <noscript>
+        <style>.reveal { opacity: 1 !important; filter: none !important; transform: none !important; }</style>
+    </noscript>
 </head>
 <body>
-    <div class="island-wrapper">
-        <div class="island">
-            <div class="island-main">
-                <i class="fas fa-compass"></i>
-                <span>MENU</span>
+    <a class="skip" href="#main">Langsung ke konten utama</a>
+
+    <!-- Boot Sequence -->
+    <div id="boot" aria-hidden="true">
+        <div class="boot-inner">
+            <div class="boot-head">KIDA-OS // SHATTERDOME TERMINAL v2.0</div>
+            <div class="boot-lines">
+                <p>&gt; initializing neural handshake ............. [OK]</p>
+                <p>&gt; loading offensive modules ................. [OK]</p>
+                <p>&gt; arming reconnaissance toolkit ............. [OK]</p>
+                <p>&gt; drift compatibility ...................... STABLE</p>
+                <p>&gt; RED TEAM status ..................... OPERATIONAL</p>
             </div>
+            <div class="boot-bar"><span></span></div>
+            <div class="boot-skip">[ CLICK / TAP TO SKIP ]</div>
+        </div>
+    </div>
+
+    <!-- HUD Navigation -->
+    <nav class="island-wrapper" aria-label="Navigasi utama">
+        <div class="island" id="island">
+            <div class="island-main"><i class="fas fa-crosshairs" aria-hidden="true"></i><span>MENU</span></div>
             <div class="island-content">
                 <ul class="island-nav">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#certifications">Certs</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#certifications">Log</a></li>
+                    <li><a href="#contact">Comms</a></li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div id="cursor"></div>
-    <div id="cursor-blur"></div>
+    </nav>
 
-    <div class="bg-blobs">
+    <!-- Cursor Reticle -->
+    <div id="reticle" aria-hidden="true">
+        <span class="r-ring"></span>
+        <span class="r-dot"></span>
+        <span class="r-tick t1"></span><span class="r-tick t2"></span>
+        <span class="r-tick t3"></span><span class="r-tick t4"></span>
+        <span class="r-br tl"></span><span class="r-br tr"></span>
+        <span class="r-br bl"></span><span class="r-br br"></span>
+    </div>
+
+    <!-- Background -->
+    <div class="bg-blobs" aria-hidden="true">
+        <div class="bg-hex"></div>
+        <div class="bg-grid"></div>
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
     </div>
+    <div id="scanlines" aria-hidden="true"></div>
+    <div id="sweep" aria-hidden="true"></div>
 
+    <main id="main">
+    <!-- ==================== HERO ==================== -->
     <section id="home" class="hero">
         <div class="container">
-            <span class="badge reveal">Junior Security Researcher</span>
-            <h1 class="reveal">Khoirul Amri Siregar</h1>
-            <p class="reveal">Offensive Security Enthusiast & Vulnerability Researcher. Berdedikasi untuk mengamankan infrastruktur digital melalui analisis kerentanan yang mendalam.</p>
-            <div class="reveal" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn btn-primary">Let's Talk</a>
-                <a href="#about" class="btn btn-outline">Explore Work</a>
+            <div class="hud-frame">
+                <span class="hud-c tl" aria-hidden="true"></span><span class="hud-c tr" aria-hidden="true"></span>
+                <span class="hud-c bl" aria-hidden="true"></span><span class="hud-c br" aria-hidden="true"></span>
+                <span class="hud-coord" aria-hidden="true">GRID -7.79 / 110.36 // SECTOR: ID-JK</span>
+
+                <span class="badge reveal">Red Team Operator // Security Researcher</span>
+                <h1 class="glitch reveal" data-text="KHOIRUL AMRI SIREGAR">Khoirul Amri Siregar</h1>
+
+                <p class="type-line reveal" aria-hidden="true"><span id="typeText">&gt; READY FOR DRIFT_</span></p>
+
+                <p class="hero-desc reveal">Offensive Security Enthusiast &amp; Vulnerability Researcher. Berdedikasi untuk mengamankan infrastruktur digital melalui analisis kerentanan yang mendalam.</p>
+
+                <div class="reveal" style="display:flex; gap:18px; justify-content:center; flex-wrap:wrap;">
+                    <a href="#contact" class="btn btn-primary">Initiate Contact</a>
+                    <a href="#about" class="btn btn-outline">Access Dossier</a>
+                </div>
             </div>
-            
-            <div class="hero-stats">
-                <div class="stat-item reveal">
-                    <span class="stat-value">30+</span>
-                    <span class="stat-label">Reported Bugs</span>
+
+            <div class="gauge-row">
+                <div class="gauge reveal" data-pct="82">
+                    <svg viewBox="0 0 120 120" aria-hidden="true">
+                        <circle class="g-track" cx="60" cy="60" r="52"></circle>
+                        <circle class="g-arc" cx="60" cy="60" r="52"></circle>
+                    </svg>
+                    <div class="g-read"><span class="g-num">30+</span><span class="g-lab">Reported Bugs</span></div>
                 </div>
-                <div class="stat-item reveal" style="transition-delay: 0.1s;">
-                    <span class="stat-value">11</span>
-                    <span class="stat-label">Hall of Fames</span>
+                <div class="gauge reveal" data-pct="64" style="transition-delay:.12s">
+                    <svg viewBox="0 0 120 120" aria-hidden="true">
+                        <circle class="g-track" cx="60" cy="60" r="52"></circle>
+                        <circle class="g-arc" cx="60" cy="60" r="52"></circle>
+                    </svg>
+                    <div class="g-read"><span class="g-num">11</span><span class="g-lab">Hall of Fames</span></div>
                 </div>
-                <div class="stat-item reveal" style="transition-delay: 0.2s;">
-                    <span class="stat-value">1+</span>
-                    <span class="stat-label">Years Exp</span>
+                <div class="gauge reveal" data-pct="38" style="transition-delay:.24s">
+                    <svg viewBox="0 0 120 120" aria-hidden="true">
+                        <circle class="g-track" cx="60" cy="60" r="52"></circle>
+                        <circle class="g-arc" cx="60" cy="60" r="52"></circle>
+                    </svg>
+                    <div class="g-read"><span class="g-num">1+</span><span class="g-lab">Years Active</span></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ==================== ABOUT ==================== -->
     <section id="about">
         <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-tag">// 01 — PILOT DOSSIER</span>
+                <h2>Menemukan Celah Sebelum Penyerang Melakukannya</h2>
+                <div class="sec-line"><span class="hazard"></span></div>
+            </div>
             <div class="grid-2">
-                <div class="about-img-box reveal">
-                    <img src="images/profile.jpg" alt="Profile" onerror="this.src='https://via.placeholder.com/600x800?text=AMRI'">
-                    <div class="exp-badge">
-                        <div style="font-size: 2.5rem; font-weight: 900; line-height: 1;">1+</div>
-                        <div style="font-weight: 800; font-size: 0.75rem; letter-spacing: 1.5px;">YEARS EXP</div>
+                <div class="dossier-img reveal">
+                    <img id="profileImg" src="images/profile.jpg" alt="Foto profil Khoirul Amri Siregar, Junior Security Researcher" width="600" height="800">
+                    <div class="service-record">
+                        <b>1+</b><span>YEARS ACTIVE</span>
                     </div>
                 </div>
                 <div class="about-content reveal">
-                    <span class="badge">Professional Profile</span>
-                    <h2>Menemukan Celah Sebelum Penyerang Melakukannya</h2>
-                    <p style="margin-bottom: 24px; color: var(--text-muted); font-size: 1.1rem;">Saya adalah <strong>Junior Security Researcher</strong> yang berfokus pada web application security. Saya percaya bahwa keamanan bukan hanya tentang mematikan akses, tapi tentang memahami bagaimana akses tersebut bisa disalahgunakan.</p>
-                    <p style="margin-bottom: 32px; color: var(--text-muted); font-size: 1.1rem;">Aktif berkontribusi dalam program VDP (Vulnerability Disclosure Program) dan Bug Bounty untuk membantu organisasi pemerintah maupun swasta memperkuat pertahanan digital mereka.</p>
+                    <span class="badge">Unit Dossier</span>
+                    <p>Saya adalah <strong>Junior Security Researcher</strong> yang berfokus pada web application security. Saya percaya bahwa keamanan bukan hanya tentang mematikan akses, tapi tentang memahami bagaimana akses tersebut bisa disalahgunakan.</p>
+                    <p>Aktif berkontribusi dalam program VDP (Vulnerability Disclosure Program) dan Bug Bounty untuk membantu organisasi pemerintah maupun swasta memperkuat pertahanan digital mereka.</p>
                     <a href="#contact" class="btn btn-primary">Get in Touch</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ==================== SKILLS ==================== -->
     <section id="skills">
         <div class="container">
-            <div class="glass-card skills-container reveal">
-                <div style="text-align: center; margin-bottom: 60px;">
-                    <span class="badge">Tech Stack</span>
-                    <h2>Technical Proficiency</h2>
-                </div>
+            <div class="sec-head reveal">
+                <span class="sec-tag">// 02 — ARMAMENT SYSTEMS</span>
+                <h2>Technical Proficiency</h2>
+                <div class="sec-line"><span class="hazard"></span></div>
+            </div>
+            <div class="panel skills-container reveal">
                 <div class="grid-2">
                     <div class="skill-group">
                         <div class="skill-item">
@@ -544,204 +709,266 @@
         </div>
     </section>
 
+    <!-- ==================== CERTIFICATIONS ==================== -->
     <section id="certifications">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 80px;">
-                <span class="badge">Awards</span>
-                <h2>Recognition & Certifications</h2>
+            <div class="sec-head reveal">
+                <span class="sec-tag">// 03 — MISSION LOG</span>
+                <h2>Recognition &amp; Certifications</h2>
+                <div class="sec-line"><span class="hazard"></span></div>
             </div>
             <div class="cert-grid" id="certGrid">
-                <!-- Data via JS -->
+                <!-- Data dirender via JS -->
             </div>
         </div>
     </section>
 
+    <!-- ==================== CONTACT ==================== -->
     <section id="contact">
         <div class="container">
-            <div class="glass-card contact-box reveal">
-                <span class="badge">Connect</span>
+            <div class="sec-head reveal">
+                <span class="sec-tag">// 04 — COMMS UPLINK</span>
                 <h2>Let's Secure Something Together</h2>
-                <div class="social-row">
-                    <a href="mailto:khoirulregar.212@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://t.me/Uuuuhnice" class="social-icon" title="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="https://github.com/khoirulamri-siregar" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/khoirulamrisiregar" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <div class="sec-line"><span class="hazard"></span></div>
+            </div>
+            <div class="panel contact-box reveal">
+                <span class="badge">Open Channel</span>
+                <div class="comms-row">
+                    <!-- ⚠️ TODO: verifikasi e-mail (khoirulregar vs khoirulsiregar?) -->
+                    <a href="mailto:khoirulregar.212@gmail.com" class="comms-btn" aria-label="Kirim email ke Khoirul Amri Siregar">
+                        <i class="fas fa-envelope" aria-hidden="true"></i><span class="comms-lab">Email</span>
+                    </a>
+                    <a href="https://t.me/Uuuuhnice" class="comms-btn" aria-label="Hubungi via Telegram">
+                        <i class="fab fa-telegram" aria-hidden="true"></i><span class="comms-lab">Telegram</span>
+                    </a>
+                    <a href="https://github.com/khoirulamri-siregar" class="comms-btn" aria-label="Profil GitHub Khoirul Amri Siregar">
+                        <i class="fab fa-github" aria-hidden="true"></i><span class="comms-lab">GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/khoirulamrisiregar" class="comms-btn" aria-label="Profil LinkedIn Khoirul Amri Siregar">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i><span class="comms-lab">LinkedIn</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> Khoirul Amri Siregar. All rights reserved.</p>
-            <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 8px;">Built with 3D Liquid Glass & Parallax</p>
+            <p class="f-line">&gt; session_terminated // © <span id="year"></span> <b>KHOIRUL AMRI SIREGAR</b> — All rights reserved.</p>
+            <p class="f-sub">&gt; unit deployed via vercel // no systems were harmed in the making of this portfolio</p>
         </div>
     </footer>
 
+    <!-- Status line HUD -->
+    <div id="statusline" aria-hidden="true">SYS:ONLINE<span class="blink">▮</span> DRIFT:STABLE // THREAT:LVL-MONITORED</div>
+
     <!-- Modal -->
-    <div class="modal" id="certModal">
-        <div class="modal-content glass-card">
-            <div class="close-modal" id="closeModal">&times;</div>
+    <div class="modal" id="certModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <div class="modal-head">
+                <span>MISSION FILE // DETAIL</span>
+                <button class="close-modal" id="closeModal" aria-label="Tutup detail sertifikat">[ ESC ] CLOSE</button>
+            </div>
             <div class="modal-body">
-                <img src="" id="modalImg" style="width: 100%; border-radius: 24px; margin-bottom: 30px; border: 1px solid var(--glass-border);">
-                <h3 id="modalTitle" style="font-size: 1.8rem; margin-bottom: 10px;"></h3>
-                <p id="modalOrg" style="color: var(--primary); font-weight: 800; margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;"></p>
-                <p id="modalDesc" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;"></p>
+                <img id="modalImg" alt="" width="800" height="500">
+                <h3 id="modalTitle"></h3>
+                <p id="modalOrg"></p>
+                <p id="modalDesc"></p>
             </div>
         </div>
     </div>
 
     <script>
-        // Dynamic Island Mobile Toggle
-        const island = document.querySelector('.island');
-        island.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                island.classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isIframe = window.self !== window.top;
+            const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 768;
+            if (isIframe) document.body.classList.add('is-iframe');
+
+            const IMG_FALLBACK = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23140808'/%3E%3Ctext x='50%25' y='50%25' fill='%23ff2b2b' font-family='monospace' font-size='28' text-anchor='middle' dy='.35em'%3ENO SIGNAL%3C/text%3E%3C/svg%3E";
+
+            /* ===== BOOT SEQUENCE ===== */
+            const boot = document.getElementById('boot');
+            let bootDone = false;
+            function finishBoot() {
+                if (bootDone) return;
+                bootDone = true;
+                boot.classList.add('done');
+                document.body.classList.remove('locked');
+                setTimeout(() => boot.remove(), 700);
             }
-        });
-
-        const allCerts = [
-            { name: 'Hall of Fame', org: 'Pemerintah Kab. Bantul', image: 'images/BantulKab.jpg', desc: 'Penghargaan atas penemuan celah keamanan pada infrastruktur web Pemerintah Kabupaten Bantul.' },
-            { name: 'Security Recognition', org: 'BMKG Indonesia', image: 'images/BMKG.jpg', desc: 'Apresiasi atas kontribusi dalam mengamankan sistem informasi BMKG.' },
-            { name: 'Hall of Fame', org: 'Gunungkidul Regency', image: 'images/GunungKidulKab.png', desc: 'Pengakuan atas laporan kerentanan keamanan pada domain resmi Pemkab Gunungkidul.' },
-            { name: 'Hall of Fame', org: 'Pemprov DKI Jakarta', image: 'images/Jakarta.jpg', desc: 'Kontribusi keamanan siber untuk infrastruktur digital Jakarta.' },
-            { name: 'Hall of Fame', org: 'Pemkot Yogyakarta', image: 'images/JogjaKota.jpg', desc: 'Penghargaan atas pelaporan celah keamanan yang bertanggung jawab di lingkungan Pemkot Yogyakarta.' },
-            { name: 'Hall of Fame', org: 'D.I. Yogyakarta', image: 'images/JogjaProv.jpg', desc: 'Apresiasi keamanan siber dari Pemerintah Provinsi D.I. Yogyakarta.' },
-            { name: 'Hall of Fame', org: 'Pemkab Jombang', image: 'images/JombangKab.jpg', desc: 'Pengakuan atas kontribusi keamanan web Pemerintah Kabupaten Jombang.' },
-            { name: 'Acknowledgment', org: 'Kemenag RI', image: 'images/Kemenag.jpg', desc: 'Kontribusi dalam pelaporan celah keamanan pada sistem Kementerian Agama.' },
-            { name: 'Security Contributor', org: 'KPI Pusat', image: 'images/KPI.jpg', desc: 'Membantu mengamankan aset digital Komisi Penyiaran Indonesia.' },
-            { name: 'Hall of Fame', org: 'Pemprov Sulawesi Tengah', image: 'images/SultengProv.jpg', desc: 'Penghargaan keamanan siber dari Pemerintah Provinsi Sulawesi Tengah.' },
-            { name: 'Acknowledgment', org: 'UNESCO', image: 'images/UNESCO.jpg', desc: 'Kontribusi pada program keamanan siber global UNESCO.' }
-        ];
-
-        // Optimized Cursor & Parallax Logic
-        const cursor = document.getElementById('cursor');
-        const cursorBlur = document.getElementById('cursor-blur');
-        const blobs = document.querySelectorAll('.blob');
-        let mouseX = 0, mouseY = 0;
-        let blurX = 0, blurY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            // Parallax Blobs
-            if (window.innerWidth > 768) {
-                const moveX = (e.clientX - window.innerWidth / 2) / 25;
-                const moveY = (e.clientY - window.innerHeight / 2) / 25;
-                
-                blobs[0].style.transform = `translate3d(${moveX * 0.8}px, ${moveY * 0.8}px, 0)`;
-                blobs[1].style.transform = `translate3d(${-moveX * 1.2}px, ${-moveY * 1.2}px, 0)`;
-                blobs[2].style.transform = `translate3d(${moveX * 0.5}px, ${-moveY * 0.5}px, 0)`;
+            if (reduceMotion || isIframe) {
+                boot.remove();
+            } else {
+                boot.classList.add('active');
+                document.body.classList.add('locked');
+                document.querySelectorAll('.boot-lines p').forEach((p, i) =>
+                    setTimeout(() => p.classList.add('on'), 200 + i * 240));
+                setTimeout(finishBoot, 2150);
+                boot.addEventListener('click', finishBoot);
             }
-        });
 
-        function animateCursor() {
-            if (window.innerWidth > 768) {
-                blurX += (mouseX - blurX) * 0.1;
-                blurY += (mouseY - blurY) * 0.1;
-                cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-                cursorBlur.style.transform = `translate3d(${blurX - 150}px, ${blurY - 150}px, 0)`;
-            }
-            requestAnimationFrame(animateCursor);
-        }
-        requestAnimationFrame(animateCursor);
-
-        // 3D Tilt Effect for Cards
-        function initTilt() {
-            if (window.innerWidth <= 768) return;
-            
-            document.querySelectorAll('.glass-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 10;
-                    const rotateY = (centerX - x) / 10;
-
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                });
-            });
-        }
-
-        function loadCerts() {
-            const grid = document.getElementById('certGrid');
-            grid.innerHTML = allCerts.map((c, index) => `
-                <div class="glass-card cert-card reveal" 
-                     style="transition-delay: ${index * 0.05}s"
-                     onclick="openModal('${c.image}', '${c.name}', '${c.org}', '${c.desc}')">
-                    <img src="${c.image}" alt="${c.name}" onerror="this.src='https://via.placeholder.com/100?text=CERT'">
-                    <h3>${c.name}</h3>
-                    <p>${c.org}</p>
-                </div>
-            `).join('');
-            
-            initReveal();
-            initTilt();
-        }
-
-        function initReveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        if (entry.target.classList.contains('skills-container')) {
-                            document.querySelectorAll('.skill-progress').forEach(p => {
-                                p.style.width = p.getAttribute('data-width');
-                            });
-                        }
+            /* ===== TERMINAL TYPING ===== */
+            const typeText = document.getElementById('typeText');
+            if (typeText && !reduceMotion && !isIframe) {
+                const phrases = [
+                    '> TARGET: WEB APPLICATION VULNERABILITIES',
+                    '> MODE: OFFENSIVE // PENETRATION TESTING',
+                    '> PROTOCOL: RESPONSIBLE DISCLOSURE',
+                    '> STATUS: MENGAMANKAN INFRASTRUKTUR DIGITAL'
+                ];
+                let pi = 0, ci = 0, deleting = false;
+                (function loop() {
+                    const cur = phrases[pi];
+                    typeText.textContent = cur.slice(0, ci);
+                    if (!deleting) {
+                        if (ci < cur.length) { ci++; setTimeout(loop, 42); }
+                        else setTimeout(() => { deleting = true; loop(); }, 2100);
+                    } else {
+                        if (ci > 0) { ci--; setTimeout(loop, 16); }
+                        else { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(loop, 420); }
                     }
-                });
-            }, { threshold: 0.1 });
-            reveals.forEach(el => observer.observe(el));
-        }
-
-        function openModal(img, title, org, desc) {
-            const m = document.getElementById('certModal');
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalOrg').textContent = org;
-            document.getElementById('modalDesc').textContent = desc;
-            m.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        document.getElementById('closeModal').onclick = () => {
-            document.getElementById('certModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        };
-
-        window.onclick = (e) => {
-            if(e.target.classList.contains('modal')) {
-                document.getElementById('certModal').classList.remove('active');
-                document.body.style.overflow = 'auto';
+                })();
             }
-        };
 
-        window.addEventListener('scroll', () => {
-            // Scroll Parallax for Blobs
-            const scrollVal = window.scrollY;
-            blobs.forEach((blob, i) => {
-                const speed = (i + 1) * 0.1;
-                blob.style.marginTop = `${scrollVal * speed}px`;
+            /* ===== ISLAND NAV ===== */
+            const island = document.getElementById('island');
+            island.addEventListener('click', () => {
+                if (window.innerWidth <= 768) island.classList.toggle('active');
             });
-        }, { passive: true });
+            island.querySelectorAll('a').forEach(a =>
+                a.addEventListener('click', () => island.classList.remove('active')));
 
-        window.onload = () => {
-            // Iframe Detection
-            if (window.self !== window.top) {
-                document.body.classList.add('is-iframe');
+            /* ===== TARGETING RETICLE ===== */
+            const reticle = document.getElementById('reticle');
+            if (reticle && isDesktop && !reduceMotion && !isIframe) {
+                let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+                document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+                (function anim() {
+                    rx += (mx - rx) * 0.22; ry += (my - ry) * 0.22;
+                    reticle.style.transform = `translate(${rx}px, ${ry}px)`;
+                    requestAnimationFrame(anim);
+                })();
+                const LOCKABLE = 'a, button, .cert-card';
+                document.addEventListener('mouseover', e => {
+                    if (e.target.closest(LOCKABLE)) reticle.classList.add('lock');
+                });
+                document.addEventListener('mouseout', e => {
+                    if (e.target.closest(LOCKABLE)) reticle.classList.remove('lock');
+                });
             }
-            loadCerts();
+
+            /* ===== BLOB PARALLAX ===== */
+            const blobs = document.querySelectorAll('.blob');
+            if (isDesktop && !reduceMotion && !isIframe) {
+                document.addEventListener('mousemove', e => {
+                    const moveX = (e.clientX - innerWidth / 2) / 25;
+                    const moveY = (e.clientY - innerHeight / 2) / 25;
+                    blobs[0].style.transform = `translate3d(${moveX * 0.8}px, ${moveY * 0.8}px, 0)`;
+                    blobs[1].style.transform = `translate3d(${-moveX * 1.2}px, ${-moveY * 1.2}px, 0)`;
+                    blobs[2].style.transform = `translate3d(${moveX * 0.5}px, ${-moveY * 0.5}px, 0)`;
+                });
+                window.addEventListener('scroll', () => {
+                    const s = window.scrollY;
+                    blobs.forEach((b, i) => b.style.marginTop = `${s * (i + 1) * 0.08}px`);
+                }, { passive: true });
+            }
+
+            /* ===== CERT DATA ===== */
+            const allCerts = [
+                { name: 'Hall of Fame', org: 'Pemerintah Kab. Bantul', image: 'images/BantulKab.jpg', desc: 'Penghargaan atas penemuan celah keamanan pada infrastruktur web Pemerintah Kabupaten Bantul.' },
+                { name: 'Security Recognition', org: 'BMKG Indonesia', image: 'images/BMKG.jpg', desc: 'Apresiasi atas kontribusi dalam mengamankan sistem informasi BMKG.' },
+                { name: 'Hall of Fame', org: 'Gunungkidul Regency', image: 'images/GunungKidulKab.png', desc: 'Pengakuan atas laporan kerentanan keamanan pada domain resmi Pemkab Gunungkidul.' },
+                { name: 'Hall of Fame', org: 'Pemprov DKI Jakarta', image: 'images/Jakarta.jpg', desc: 'Kontribusi keamanan siber untuk infrastruktur digital Jakarta.' },
+                { name: 'Hall of Fame', org: 'Pemkot Yogyakarta', image: 'images/JogjaKota.jpg', desc: 'Penghargaan atas pelaporan celah keamanan yang bertanggung jawab di lingkungan Pemkot Yogyakarta.' },
+                { name: 'Hall of Fame', org: 'D.I. Yogyakarta', image: 'images/JogjaProv.jpg', desc: 'Apresiasi keamanan siber dari Pemerintah Provinsi D.I. Yogyakarta.' },
+                { name: 'Hall of Fame', org: 'Pemkab Jombang', image: 'images/JombangKab.jpg', desc: 'Pengakuan atas kontribusi keamanan web Pemerintah Kabupaten Jombang.' },
+                { name: 'Acknowledgment', org: 'Kemenag RI', image: 'images/Kemenag.jpg', desc: 'Kontribusi dalam pelaporan celah keamanan pada sistem Kementerian Agama.' },
+                { name: 'Security Contributor', org: 'KPI Pusat', image: 'images/KPI.jpg', desc: 'Membantu mengamankan aset digital Komisi Penyiaran Indonesia.' },
+                { name: 'Hall of Fame', org: 'Pemprov Sulawesi Tengah', image: 'images/SultengProv.jpg', desc: 'Penghargaan keamanan siber dari Pemerintah Provinsi Sulawesi Tengah.' },
+                { name: 'Acknowledgment', org: 'UNESCO', image: 'images/UNESCO.jpg', desc: 'Kontribusi pada program keamanan siber global UNESCO.' }
+            ];
+
+            /* ===== RENDER CERTS ===== */
+            const grid = document.getElementById('certGrid');
+            grid.innerHTML = allCerts.map((c, i) => `
+                <article class="cert-card reveal" data-i="${i}" tabindex="0" role="button"
+                         aria-label="Buka detail ${c.name} dari ${c.org}"
+                         style="transition-delay:${i * 0.05}s">
+                    <div class="cc-head"><span>FILE ${String(i + 1).padStart(2, '0')}</span><span class="cc-dot"></span></div>
+                    <img src="${c.image}" alt="Sertifikat ${c.name} — ${c.org}" loading="lazy" decoding="async" width="100" height="62">
+                    <h3>${c.name}</h3>
+                    <p class="cc-org">${c.org}</p>
+                </article>
+            `).join('');
+            grid.querySelectorAll('img').forEach(img =>
+                img.addEventListener('error', () => { img.src = IMG_FALLBACK; }));
+
+            const profileImg = document.getElementById('profileImg');
+            if (profileImg) profileImg.addEventListener('error', () => { profileImg.src = IMG_FALLBACK; });
+
+            /* ===== REVEAL + GAUGES + SKILL BARS ===== */
+            function initReveal() {
+                const io = new IntersectionObserver(entries => {
+                    entries.forEach(en => {
+                        if (!en.isIntersecting) return;
+                        en.target.classList.add('active');
+                        if (en.target.classList.contains('skills-container')) {
+                            document.querySelectorAll('.skill-progress').forEach(p => p.style.width = p.dataset.width);
+                        }
+                        if (en.target.classList.contains('gauge')) {
+                            const arc = en.target.querySelector('.g-arc');
+                            if (arc) arc.style.strokeDashoffset = 326.73 * (1 - (+en.target.dataset.pct) / 100);
+                        }
+                        io.unobserve(en.target);
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+            }
+            initReveal();
+
+            /* ===== MODAL ===== */
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('modalImg');
+            const closeBtn = document.getElementById('closeModal');
+            let lastFocus = null;
+
+            function openModal(i) {
+                const c = allCerts[i];
+                modalImg.src = c.image;
+                modalImg.alt = `Sertifikat ${c.name} — ${c.org}`;
+                modalImg.onerror = () => modalImg.src = IMG_FALLBACK;
+                document.getElementById('modalTitle').textContent = c.name;
+                document.getElementById('modalOrg').textContent = c.org;
+                document.getElementById('modalDesc').textContent = c.desc;
+                lastFocus = document.activeElement;
+                modal.classList.add('active');
+                document.body.classList.add('locked');
+                closeBtn.focus();
+            }
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.classList.remove('locked');
+                if (lastFocus) lastFocus.focus();
+            }
+            grid.addEventListener('click', e => {
+                const card = e.target.closest('.cert-card');
+                if (card) openModal(+card.dataset.i);
+            });
+            grid.addEventListener('keydown', e => {
+                const card = e.target.closest('.cert-card');
+                if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openModal(+card.dataset.i); }
+            });
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            });
+
+            /* ===== MISC ===== */
             document.getElementById('year').textContent = new Date().getFullYear();
-        };
+        });
     </script>
 </body>
-</html>
+                                                       </html>
